@@ -30,6 +30,8 @@ jobs:
           python tools/build_quality_report.py
           python tools/build_semantic_model.py
           python tools/build_jekyll_site.py
+          python tools/build_site_information_architecture.py
+          python tools/validate_site_ia.py
 
       - name: Upload semantic model evidence
         uses: actions/upload-artifact@v4
@@ -39,6 +41,14 @@ jobs:
             generated/json/tig-taxonomy.json
             generated/json/tig-ontology.jsonld
             generated/rdf/tig-ontology.ttl
+
+      - name: Upload site IA evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: tig-site-information-architecture
+          path: |
+            explore/taxonomy.md
+            explore/relationships.md
 
       - name: Fail if tracked generated artifacts drifted
         run: |
