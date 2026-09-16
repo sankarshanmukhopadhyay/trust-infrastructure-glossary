@@ -1,12 +1,13 @@
 {
   "name": "trust-infrastructure-glossary",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "description": "Governance-executable concept system for digital trust infrastructure.",
   "license": "OWFa-1.0",
   "scripts": {
     "build:site": "python tools/build_jekyll_site.py",
     "build:glossary": "python tools/build_governance_glossary.py",
-    "validate": "python tools/validate_governance_glossary.py && python tools/validate_profiles.py"
+    "build:semantics": "python tools/build_semantic_model.py",
+    "validate": "python tools/validate_governance_glossary.py && python tools/validate_profiles.py && python tools/validate_semantic_model.py"
   }
 }

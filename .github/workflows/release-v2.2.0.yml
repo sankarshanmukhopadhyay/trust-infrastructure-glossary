@@ -1,0 +1,56 @@
+name: Publish Trust Infrastructure Glossary v2.2.0
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - RELEASE_NOTES_v2.2.0.md
+      - .github/workflows/release-v2.2.0.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Validate release sources
+        run: |
+          python tools/validate_governance_glossary.py
+          python tools/validate_profiles.py
+          python tools/validate_semantic_model.py
+          python tools/build_governance_glossary.py
+          python tools/build_quality_report.py
+          python tools/build_semantic_model.py
+          python tools/build_jekyll_site.py
+          git diff --exit-code -- . ':!docs/'
+
+      - name: Publish v2.2.0 as latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v2.2.0 >/dev/null 2>&1; then
+            echo "v2.2.0 already exists; release publication is idempotently complete."
+            exit 0
+          fi
+
+          gh release create v2.2.0 \
+            generated/json/tig-taxonomy.json \
+            generated/json/tig-ontology.jsonld \
+            generated/rdf/tig-ontology.ttl \
+            --target "$GITHUB_SHA" \
+            --title "Trust Infrastructure Glossary v2.2.0" \
+            --notes-file RELEASE_NOTES_v2.2.0.md \
+            --latest

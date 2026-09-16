@@ -3,12 +3,12 @@
 [![Validate Trust Infrastructure Glossary](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/actions/workflows/validate-governance-glossary.yml/badge.svg)](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/actions/workflows/validate-governance-glossary.yml)
 [![Pages](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/actions/workflows/pages.yml/badge.svg)](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/actions/workflows/pages.yml)
 ![Concepts](https://img.shields.io/badge/concepts-617-blue)
-![Version](https://img.shields.io/badge/version-v2.1.0-blue)
+![Version](https://img.shields.io/badge/version-v2.2.0-blue)
 ![License](https://img.shields.io/badge/license-OWFa%201.0-blue)
 
 The **Trust Infrastructure Glossary (TIG)** is an independent, governance-executable concept system for digital trust infrastructure. It combines plain-English and formal definitions with stable concept identifiers, language-tagged designations, provenance, lifecycle and assurance semantics, semantic relationships, cross-vocabulary mappings, deterministic validation, and machine-readable publication.
 
-Version `v2.1.0` extends the v2 semantic contract with foundational portfolio vocabulary for accountability, assurance, decision, effect, and evidence. The release also introduces a governed portfolio vocabulary-gap inventory for subsequent cross-repository expansion. ToIP remains an important source corpus and is explicitly attributed where applicable, but it is not a governing upstream repository.
+Version `v2.2.0` adds a governed taxonomy and lightweight ontology projection over the v2 concept corpus. It introduces a machine-readable portfolio candidate inventory, controlled SKOS-aligned predicates, explicit taxonomy assertions over canonical TIG concept IDs, deterministic JSON/JSON-LD/RDF semantic artifacts, and executable safeguards preventing descriptive ontology assertions from becoming downstream normative authority.
 
 ## Start here
 
@@ -39,6 +39,16 @@ Each concept artifact can include:
 
 The legacy `term` and `aliases` fields remain in v2 as compatibility fields for existing consumers. New integrations should treat `concept_id` and `designations` as authoritative.
 
+### Vocabulary, taxonomy and ontology
+
+TIG keeps these layers deliberately separate:
+
+- **Vocabulary:** canonical concept artifacts remain the source of semantic authority.
+- **Taxonomy:** hierarchy is deterministically derived from canonical concept relations plus explicit governed hierarchy assertions between canonical TIG concept IDs.
+- **Lightweight ontology:** typed SKOS-aligned edges are deterministically derived with provenance and a non-normative authority effect.
+
+See [Taxonomy & Lightweight Ontology](governance/semantic/taxonomy-ontology.md) for the authority boundary, predicate contract, taxonomy assertion model and validation rules.
+
 ## Repository operating model
 
 | Layer | Role | Authority |
@@ -47,19 +57,19 @@ The legacy `term` and `aliases` fields remain in v2 as compatibility fields for 
 | `schemas/` | JSON Schema and controlled vocabularies | **Validation contract** |
 | `profiles/` | Reusable vocabulary profiles | Curated downstream consumption layer |
 | `tools/` | Validation, generation, and quality utilities | Publication and integrity control plane |
-| `governance/` | Maintainer, semantic, provenance, assurance, and publication guidance | Maintainer-authored governance |
+| `governance/` | Maintainer, semantic, provenance, assurance, taxonomy and publication guidance | Maintainer-authored governance |
 | `_terms/` | Generated Jekyll concept pages | **Generated output only** |
-| `generated/json/` | JSON, JSON-LD, manifests, inventories, reports | **Generated output only** |
-| `generated/rdf/` | SKOS-compatible Turtle | **Generated output only** |
+| `generated/json/` | JSON, JSON-LD, taxonomy, ontology, manifests, inventories and reports | **Generated output only** |
+| `generated/rdf/` | SKOS-compatible Turtle, including ontology projection | **Generated output only** |
 | `generated/markdown/` | Human-readable bundles and reports | **Generated output only** |
 
 ## Source-of-truth policy
 
-Edit `glossary/terms/*.yaml`, not generated renderings. Generated paths must be reproducible from source and regenerated in the same change set.
+Edit `glossary/terms/*.yaml` for concept-local semantics. Use `governance/taxonomy-relations.yaml` only for reviewed additive hierarchy assertions between existing canonical concept IDs where rewriting inherited concept artifacts is neither necessary nor desirable. Generated taxonomy and ontology outputs are projections, not independent sources of authority.
 
 ## Independence and lineage
 
-This project originated as a fork of the Trust over IP Main Glossary. The v2.0.0 release created an independent project identity, authority model, semantic contract, release process, and source-intake policy. v2.1.0 preserves those boundaries while expanding reusable vocabulary from the active trust-infrastructure portfolio.
+This project originated as a fork of the Trust over IP Main Glossary. The v2.0.0 release created an independent project identity, authority model, semantic contract, release process, and source-intake policy. v2.1.0 expanded foundational portfolio vocabulary; v2.2.0 adds governed semantic projection while preserving those authority boundaries.
 
 The project does **not** erase that lineage:
 
@@ -105,7 +115,10 @@ Run the generators to produce:
 - `generated/json/governance-executable-glossary.json`
 - `generated/json/governance-executable-glossary.catalog.json`
 - `generated/json/governance-executable-glossary.jsonld`
+- `generated/json/tig-taxonomy.json`
+- `generated/json/tig-ontology.jsonld`
 - `generated/rdf/trust-infrastructure-glossary.ttl`
+- `generated/rdf/tig-ontology.ttl`
 - governance inventories and quality reports
 - deterministic Jekyll pages and indexes
 
@@ -115,8 +128,10 @@ Run the generators to produce:
 pip install -r requirements.txt
 python tools/validate_governance_glossary.py
 python tools/validate_profiles.py
+python tools/validate_semantic_model.py
 python tools/build_governance_glossary.py
 python tools/build_quality_report.py
+python tools/build_semantic_model.py
 python tools/build_jekyll_site.py
 ```
 
@@ -135,7 +150,8 @@ bundle exec jekyll serve
 4. Add plain-English text without weakening the formal definition.
 5. Record mapping strength deliberately; do not use `exact` when meanings differ materially.
 6. Retain provenance and applicable licensing/attribution evidence.
-7. Regenerate and review all derived artifacts before merge.
+7. Treat predicate additions, taxonomy assertions and authority-effect changes as semantic-governance changes requiring explicit review.
+8. Regenerate and review all derived artifacts before merge.
 
 See [Contributing](Contributing.md), [Repository Operating Model](governance/repository-operating-model.md), and [Term Authoring Guide](governance/term-authoring-guide.md).
 

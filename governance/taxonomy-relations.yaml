@@ -1,0 +1,32 @@
+schema_version: '1.0'
+status: governed-additive
+authority_effect: descriptive-reference
+assertions:
+  - subject: urn:tig:concept:delegator
+    predicate: broader
+    object: urn:tig:concept:actor
+    rationale: A delegator is an actor in the delegation relationship.
+    provenance:
+      classification: locally_defined
+      source: TIG v2.2 semantic taxonomy tranche
+  - subject: urn:tig:concept:delegatee
+    predicate: broader
+    object: urn:tig:concept:actor
+    rationale: A delegatee is an actor receiving delegated authority.
+    provenance:
+      classification: locally_defined
+      source: TIG v2.2 semantic taxonomy tranche
+  - subject: urn:tig:concept:assurance-boundary
+    predicate: broader
+    object: urn:tig:concept:assurance
+    rationale: An assurance boundary is a concept that constrains the scope of an assurance claim or conclusion.
+    provenance:
+      classification: locally_defined
+      source: TIG v2.2 semantic taxonomy tranche
+  - subject: urn:tig:concept:attestation
+    predicate: broader
+    object: urn:tig:concept:evidence
+    rationale: An attestation can function as a governed evidence artifact supporting a claim or conclusion.
+    provenance:
+      classification: locally_defined
+      source: TIG v2.2 semantic taxonomy tranche
