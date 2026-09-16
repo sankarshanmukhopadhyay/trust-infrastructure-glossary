@@ -11,6 +11,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_PATH = ROOT / "governance" / "semantic-model.yaml"
 CANDIDATE_PATH = ROOT / "governance" / "portfolio-vocabulary-candidates.yaml"
+TAXONOMY_RELATIONS_PATH = ROOT / "governance" / "taxonomy-relations.yaml"
 TERMS_DIR = ROOT / "glossary" / "terms"
 
 
@@ -84,10 +85,41 @@ def canonical_edges(
     return edges, unresolved
 
 
+def governed_taxonomy_edges(model: dict[str, Any], concepts: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    """Load explicit additive hierarchy assertions over canonical TIG concept IDs."""
+    data = load_yaml(TAXONOMY_RELATIONS_PATH)
+    predicates = model["ontology"]["predicates"]
+    edges: list[dict[str, Any]] = []
+    for assertion in data.get("assertions") or []:
+        subject = assertion.get("subject")
+        predicate = assertion.get("predicate")
+        obj = assertion.get("object")
+        provenance = assertion.get("provenance") or {}
+        if subject not in concepts or obj not in concepts or predicate not in {"broader", "narrower"}:
+            continue
+        edges.append(
+            {
+                "subject": subject,
+                "predicate": predicate,
+                "object": obj,
+                "provenance": {
+                    "concept_artifact": TAXONOMY_RELATIONS_PATH.relative_to(ROOT).as_posix(),
+                    "classification": provenance.get("classification"),
+                    "source": provenance.get("source"),
+                    "rationale": assertion.get("rationale"),
+                },
+                "authority_effect": predicates[predicate]["authority_effect"],
+            }
+        )
+    return edges
+
+
 def build_semantic_model() -> dict[str, Any]:
     model = load_yaml(MODEL_PATH)
     concepts, paths = load_concepts()
     edges, unresolved = canonical_edges(model, concepts, paths)
+    edges.extend(governed_taxonomy_edges(model, concepts))
+    edges = sorted(edges, key=lambda edge: (edge["subject"], edge["predicate"], edge["object"], edge["provenance"].get("concept_artifact", "")))
 
     child_ids: set[str] = set()
     hierarchy_edges: list[dict[str, str]] = []
@@ -99,9 +131,7 @@ def build_semantic_model() -> dict[str, Any]:
             child_ids.add(edge["object"])
             hierarchy_edges.append({"child": edge["object"], "parent": edge["subject"]})
 
-    hierarchy_edges = sorted(
-        {(edge["child"], edge["parent"]) for edge in hierarchy_edges}
-    )
+    hierarchy_edges = sorted({(edge["child"], edge["parent"]) for edge in hierarchy_edges})
     hierarchy = [{"child": child, "parent": parent} for child, parent in hierarchy_edges]
     roots = sorted(set(concepts) - child_ids)
 
@@ -116,6 +146,7 @@ def build_semantic_model() -> dict[str, Any]:
             "featured_roots": sorted(model["taxonomy"].get("featured_roots", [])),
             "roots": roots,
             "hierarchy": hierarchy,
+            "hierarchy_edge_count": len(hierarchy),
             "concept_count": len(concepts),
         },
         "ontology": {
@@ -165,14 +196,12 @@ def turtle_document(graph: dict[str, Any]) -> str:
         "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .",
         "@prefix tig: <urn:tig:> .",
         "",
-        "# Generated from canonical TIG concept artifacts.",
+        "# Generated from canonical TIG concept artifacts and governed taxonomy assertions.",
         "# These triples have descriptive-reference effect only; source repositories retain normative authority.",
         "# Unresolved legacy references are excluded from triples and reported in the JSON/JSON-LD evidence.",
         "",
     ]
-    iri_by_predicate = {
-        name: spec["iri"] for name, spec in graph["ontology"]["predicates"].items()
-    }
+    iri_by_predicate = {name: spec["iri"] for name, spec in graph["ontology"]["predicates"].items()}
     for edge in graph["ontology"]["edges"]:
         predicate_iri = iri_by_predicate[edge["predicate"]]
         lines.append(f"<{edge['subject']}> <{predicate_iri}> <{edge['object']}> .")
