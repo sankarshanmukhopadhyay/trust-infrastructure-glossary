@@ -23,7 +23,7 @@ Use these curated domain paths when you know the trust-infrastructure problem yo
 ## Recognition, registries and trust decisions
 [recognition]({{ '/terms/recognition/' | relative_url }}), [registry]({{ '/terms/registry/' | relative_url }}), [trust registry]({{ '/terms/trust-registry/' | relative_url }}), [trust decision]({{ '/terms/trust-decision/' | relative_url }})
 
-## Privacy and disclosure
-[privacy]({{ '/terms/privacy/' | relative_url }}), [disclosure]({{ '/terms/disclosure/' | relative_url }}), [correlation]({{ '/terms/correlation/' | relative_url }}), [selective disclosure]({{ '/terms/selective-disclosure/' | relative_url }})
+## Privacy-relevant disclosure
+[selective disclosure]({{ '/terms/selective-disclosure/' | relative_url }})
 
 For semantic classification rather than curated domain entry points, use the [generated taxonomy]({{ '/explore/taxonomy/' | relative_url }}). For graph adjacency, use [relationship exploration]({{ '/explore/relationships/' | relative_url }}).
