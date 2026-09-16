@@ -1,27 +1,33 @@
 ---
 title: "Govern TIG"
-nav_order: 4
+nav_order: 5
 has_children: true
 ---
 
 # Govern TIG
 
-TIG treats terminology as maintained semantic infrastructure. Governance therefore covers not only wording, but concept identity, provenance, mappings, lifecycle, evidence, publication integrity and downstream compatibility.
+Governance controls **how TIG may change**. This section is for maintainers and reviewers working on concept admission, semantic change, provenance, source intake, assurance, validation and publication.
 
-## Semantic model & authoring
+It is intentionally separate from the public [Semantic Model]({{ '/semantic-model/' | relative_url }}), which explains what vocabulary, taxonomy and ontology mean to consumers.
 
-Understand how concepts and designations are represented and how changes are reviewed.
+## Semantic change & authoring
 
-[Open semantic model & authoring]({{ '/governance/semantic/' | relative_url }})
+Review concept identity, designations, mappings, taxonomy assertions and authoring rules. Semantic change must preserve stable identifiers, provenance and authority boundaries.
+
+[Open semantic authoring guidance]({{ '/governance/semantic/' | relative_url }})
 
 ## Assurance & quality
 
-Inspect validation, generated inventories and the assurance-readiness model.
+Inspect validation, generated inventories, quality evidence and the assurance-readiness model.
 
 [Open assurance & quality]({{ '/governance/assurance/' | relative_url }})
 
 ## Operations & evolution
 
-Understand source intake, publication, extensions and repository operating rules.
+Understand source intake, publication, releases, extensions and repository operating rules.
 
 [Open operations & evolution]({{ '/governance/operations/' | relative_url }})
+
+## Governance principle
+
+The public site is a projection and consumption surface. It must never become a second, manually maintained semantic authority layer that can drift from canonical TIG sources.
