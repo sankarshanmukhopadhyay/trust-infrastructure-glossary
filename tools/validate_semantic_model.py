@@ -47,12 +47,13 @@ def main() -> int:
 
     graph = build_semantic_model()
     for edge in graph["ontology"]["edges"]:
+        source = edge["provenance"].get("concept_artifact", "<unknown>")
         if edge["subject"] not in concepts:
-            errors.append(f"edge subject does not resolve: {edge['subject']}")
+            errors.append(f"edge subject does not resolve: {edge['subject']} (source: {source})")
         if edge["object"] not in concepts:
-            errors.append(f"edge object does not resolve: {edge['object']}")
+            errors.append(f"edge object does not resolve: {edge['object']} (source: {source}, subject: {edge['subject']})")
         if edge["predicate"] not in predicates:
-            errors.append(f"edge predicate is not registered: {edge['predicate']}")
+            errors.append(f"edge predicate is not registered: {edge['predicate']} (source: {source})")
         if not edge["provenance"].get("concept_artifact") or not edge["provenance"].get("classification"):
             errors.append(f"edge lacks provenance: {edge['subject']} {edge['predicate']} {edge['object']}")
 
