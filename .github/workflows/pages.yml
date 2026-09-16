@@ -38,19 +38,25 @@ jobs:
       - name: Install Python dependencies
         run: pip install pyyaml jsonschema
 
-      - name: Validate glossary
+      - name: Validate glossary and semantic model
         run: |
           python tools/validate_governance_glossary.py
           python tools/validate_profiles.py
+          python tools/validate_semantic_model.py
 
       - name: Generate machine-readable bundles
-        run: python tools/build_governance_glossary.py
+        run: |
+          python tools/build_governance_glossary.py
+          python tools/build_semantic_model.py
 
       - name: Generate governance quality report
         run: python tools/build_quality_report.py
 
-      - name: Generate Jekyll pages from governance source layer
-        run: python tools/build_jekyll_site.py
+      - name: Generate public information architecture
+        run: |
+          python tools/build_jekyll_site.py
+          python tools/build_site_information_architecture.py
+          python tools/validate_site_ia.py
 
       - name: Verify generated artifacts are in sync
         run: git diff --exit-code -- . ':!docs/'

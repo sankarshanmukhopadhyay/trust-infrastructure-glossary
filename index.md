@@ -3,54 +3,75 @@ layout: home
 title: Trust Infrastructure Glossary
 nav_order: 1
 nav_exclude: true
-description: Governance-executable concept system for digital trust infrastructure.
+description: Governed semantic infrastructure for digital trust systems.
 ---
 
 # Trust Infrastructure Glossary
 
-**Stable concepts for digital trust infrastructure, written for people and published for machines.**
+**A governed semantic infrastructure for digital trust systems.**
 
-TIG combines plain-English explanations and formal definitions with stable concept identifiers, provenance, semantic relationships, lifecycle and assurance metadata, and machine-readable artifacts.
+TIG provides stable concepts, controlled vocabulary, taxonomy, semantic relationships, and machine-readable ontology artifacts for designing, comparing, implementing, and governing digital trust infrastructure.
 
-## Choose your path
+It is written for people, published for machines, and governed so that representation does not silently become authority.
 
-### I need to understand a concept
+## How TIG fits together
 
-Browse by problem area or use the A–Z index. Concept pages lead with meaning and progressively expose provenance, relationships and implementation metadata.
+| Layer | Question it answers | TIG provides |
+|---|---|---|
+| **Vocabulary** | What does this concept mean? | Stable concept IDs, designations, definitions and provenance |
+| **Taxonomy** | Where does this concept sit? | Governed broader/narrower hierarchy over canonical concepts |
+| **Ontology** | How does this concept relate to others? | Typed, provenance-bearing semantic edges with descriptive-reference effect |
+| **Profiles & artifacts** | How can a project consume TIG? | Bounded profiles, JSON, JSON-LD, Turtle, inventories and quality evidence |
+| **Governance** | How can this semantic system change safely? | Authority boundaries, source intake, validation, assurance and publication controls |
+
+The vocabulary is the semantic source. Taxonomy and ontology are governed projections over that source; they do not create downstream normative requirements.
+
+## Start with what you need
+
+### Understand or navigate concepts
+
+Use A–Z lookup, domain browsing, the generated taxonomy, relationship exploration, or site search.
 
 [Explore concepts]({{ '/explore/' | relative_url }})
 
-### I need vocabulary for a project
+### Understand the semantic model
 
-Use curated profiles or consume the canonical JSON, JSON-LD and SKOS-compatible Turtle artifacts.
+See how vocabulary, taxonomy, ontology and provenance fit together and where semantic authority lives.
+
+[Open the Semantic Model]({{ '/semantic-model/' | relative_url }})
+
+### Adopt TIG in a project
+
+Choose an integration path for referencing concepts, using a profile, traversing the semantic graph, or consuming machine-readable artifacts.
 
 [Use TIG]({{ '/use/' | relative_url }})
 
-### I need to review or contribute semantics
+### Review how TIG is governed
 
-Inspect the concept model, authoring rules, provenance policy, assurance checks and source-intake process.
+Inspect concept admission, semantic change controls, source intake, assurance, quality and publication operations.
 
 [Govern TIG]({{ '/governance/' | relative_url }})
 
-### I need project context
-
-Understand the v2 independence transition, lineage, releases and roadmap.
-
-[Project context]({{ '/project/' | relative_url }})
-
 ## What makes TIG different
 
-| Layer | What it provides |
+| Property | What it means |
 |---|---|
-| **Readable** | Plain-English explanations before formal definitions |
-| **Referenceable** | Stable concept IDs independent of labels and page names |
-| **Traceable** | Explicit source provenance and editorial status |
-| **Connected** | Semantic relations and governed cross-vocabulary mappings |
-| **Executable** | Structured authority, lifecycle, evidence and assurance metadata |
-| **Reusable** | Versioned bundles and bounded vocabulary profiles |
+| **Readable** | Plain-English explanations accompany formal definitions |
+| **Referenceable** | Stable concept IDs are independent of labels and page names |
+| **Traceable** | Provenance, editorial state and source lineage remain visible |
+| **Connected** | Concepts participate in governed semantic relationships |
+| **Executable** | Authority, lifecycle, evidence and assurance metadata are machine-readable |
+| **Assurable** | Validation and deterministic generation produce inspectable evidence |
+| **Reusable** | Profiles and versioned artifacts support bounded downstream adoption |
 
-## v2.0.0 independence
+## Authority boundary
 
-TIG originated from the Trust over IP Main Glossary and retains that lineage through explicit provenance. **Version 2.0.0 is independently governed:** ToIP is a source corpus, not TIG's governing upstream.
+TIG is not a certification authority and does not become the normative authority for a source specification merely by representing its concepts or relationships. Generated taxonomy and ontology assertions have descriptive-reference effect unless an authoritative source independently says otherwise.
 
-[Read about project lineage]({{ '/governance/project-lineage/' | relative_url }}) · [Read the v2 release notes]({{ '/release-notes-v2-0-0/' | relative_url }})
+[Read the semantic authority model]({{ '/semantic-model/provenance/' | relative_url }}) · [Review governance controls]({{ '/governance/' | relative_url }})
+
+## Current release
+
+TIG `v2.2.0` introduced the governed taxonomy and lightweight ontology projection while preserving the v2 semantic and authority contract.
+
+[Read the v2.2.0 release notes]({{ '/release-notes-v2-2-0/' | relative_url }}) · [View project context]({{ '/project/' | relative_url }})

@@ -6,54 +6,57 @@ parent: "Use TIG"
 
 # Machine-readable Artifacts
 
-TIG publishes generated artifacts for downstream systems that need stable concept semantics rather than static prose. All generated artifacts are derived from `glossary/terms/`.
+Choose the **semantic product** you need first; use the filesystem path only as its transport location. All generated products are derived from governed TIG source artifacts.
 
-## Canonical v2 bundles
+## Semantic products
 
-- `generated/json/trust-infrastructure-glossary.json`
-- `generated/json/trust-infrastructure-glossary.jsonld`
-- `generated/rdf/trust-infrastructure-glossary.ttl`
-- `generated/json/trust-infrastructure-glossary.catalog.json`
+| Product | Format | Purpose | Path |
+|---|---|---|---|
+| **TIG Vocabulary** | JSON | Complete structured concept dataset for programmatic use | `generated/json/trust-infrastructure-glossary.json` |
+| **TIG Vocabulary** | JSON-LD | Linked-data representation of the concept system | `generated/json/trust-infrastructure-glossary.jsonld` |
+| **TIG Vocabulary** | Turtle | SKOS-compatible RDF representation | `generated/rdf/trust-infrastructure-glossary.ttl` |
+| **TIG Catalogue** | JSON | Compact discovery/catalogue view | `generated/json/trust-infrastructure-glossary.catalog.json` |
+| **TIG Taxonomy** | JSON | Governed broader/narrower hierarchy and roots | `generated/json/tig-taxonomy.json` |
+| **TIG Ontology** | JSON-LD | Typed, provenance-bearing semantic graph | `generated/json/tig-ontology.jsonld` |
+| **TIG Ontology** | Turtle | RDF projection of projectable semantic edges | `generated/rdf/tig-ontology.ttl` |
+| **Vocabulary Profiles** | YAML | Bounded concept selections for downstream domains | `profiles/*.yaml` |
+| **Governance Inventory** | JSON / Markdown | Authority, lifecycle, evidence and control-plane inventory | `generated/json/governance-inventory.json` |
+| **Quality Report** | JSON / Markdown | Repository validation and assurance-readiness evidence | `generated/json/governance-quality-report.json` |
+| **Artifact Manifest** | JSON / Markdown | Inputs, generators, intended use and stability expectations | `generated/json/artifact-manifest.json` |
 
-The JSON-LD and Turtle representations use SKOS-aligned concept, label, relation, and mapping semantics.
+## Which product should I use?
 
-## v1 compatibility bundles
+- Use the **Vocabulary** when you need definitions, designations, identifiers or concept metadata.
+- Use the **Taxonomy** when you need hierarchical classification or navigation.
+- Use the **Ontology** when you need typed semantic relationships or graph traversal.
+- Use a **Profile** when your project needs a bounded subset without redefining TIG concepts.
+- Use the **Inventory / Quality Report** when you need governance and assurance evidence about the published corpus.
 
-The following filenames remain generated during the v2 migration window:
+[Read the Semantic Model]({{ '/semantic-model/' | relative_url }}) for the authority boundary between these products.
+
+## Compatibility bundles
+
+The following v1-era filenames remain generated during the v2 migration window:
 
 - `generated/json/governance-executable-glossary.json`
 - `generated/json/governance-executable-glossary.jsonld`
 - `generated/json/governance-executable-glossary.catalog.json`
 - `generated/markdown/governance-executable-glossary.md`
 
-Consumers should migrate to the canonical TIG filenames.
+New consumers should use the canonical TIG product names above.
 
-## Profiles
+## Generation and evidence
 
-Reusable selection profiles live under `profiles/` and are validated against stable `concept_id` values.
-
-## Inventory and assurance-readiness artifacts
-
-- `generated/json/governance-inventory.json`
-- `generated/markdown/governance-inventory.md`
-- `generated/json/governance-quality-report.json`
-- `generated/markdown/governance-quality-report.md`
-
-## Artifact manifest
-
-- `generated/json/artifact-manifest.json`
-- `generated/markdown/artifact-manifest.md`
-
-The manifest identifies source inputs, generators, intended consumer use, and stability expectations.
-
-## Generation workflow
+Maintainer workflows validate canonical sources, profiles and semantic projection before generating publication artifacts. CI fails when tracked generated outputs drift from their governed sources.
 
 ```bash
 python tools/validate_governance_glossary.py
 python tools/validate_profiles.py
+python tools/validate_semantic_model.py
 python tools/build_governance_glossary.py
 python tools/build_quality_report.py
+python tools/build_semantic_model.py
 python tools/build_jekyll_site.py
+python tools/build_site_information_architecture.py
+python tools/validate_site_ia.py
 ```
-
-GitHub Actions run the same steps and fail when generated output drifts from authoritative source.
