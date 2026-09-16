@@ -36,9 +36,21 @@ def load_concepts() -> tuple[dict[str, dict[str, Any]], dict[str, str]]:
     return concepts, paths
 
 
-def canonical_edges(model: dict[str, Any], concepts: dict[str, dict[str, Any]], paths: dict[str, str]) -> list[dict[str, Any]]:
+def canonical_edges(
+    model: dict[str, Any],
+    concepts: dict[str, dict[str, Any]],
+    paths: dict[str, str],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Return projectable edges plus unresolved legacy references.
+
+    Canonical concept artifacts can retain inherited semantic references whose target
+    has never been promoted to a TIG concept. Those references remain source evidence,
+    but they are not emitted as ontology edges because a typed ontology edge must have
+    resolvable Concept/Concept endpoints.
+    """
     predicates = model["ontology"]["predicates"]
     edges: list[dict[str, Any]] = []
+    unresolved: list[dict[str, Any]] = []
     for subject in sorted(concepts):
         concept = concepts[subject]
         provenance = concept.get("provenance") or {}
@@ -49,25 +61,33 @@ def canonical_edges(model: dict[str, Any], concepts: dict[str, dict[str, Any]], 
                 continue
             targets = relations.get(predicate) or []
             for obj in sorted(set(targets)):
-                edges.append(
-                    {
-                        "subject": subject,
-                        "predicate": predicate,
-                        "object": obj,
-                        "provenance": {
-                            "concept_artifact": paths[subject],
-                            "classification": classification,
-                        },
-                        "authority_effect": predicates[predicate]["authority_effect"],
-                    }
-                )
-    return edges
+                record = {
+                    "subject": subject,
+                    "predicate": predicate,
+                    "object": obj,
+                    "provenance": {
+                        "concept_artifact": paths[subject],
+                        "classification": classification,
+                    },
+                    "authority_effect": predicates[predicate]["authority_effect"],
+                }
+                if obj not in concepts:
+                    unresolved.append(
+                        {
+                            **record,
+                            "projection_status": "excluded-unresolved-target",
+                            "reason": "target concept_id is not present in the canonical TIG concept corpus",
+                        }
+                    )
+                    continue
+                edges.append(record)
+    return edges, unresolved
 
 
 def build_semantic_model() -> dict[str, Any]:
     model = load_yaml(MODEL_PATH)
     concepts, paths = load_concepts()
-    edges = canonical_edges(model, concepts, paths)
+    edges, unresolved = canonical_edges(model, concepts, paths)
 
     child_ids: set[str] = set()
     hierarchy_edges: list[dict[str, str]] = []
@@ -103,6 +123,8 @@ def build_semantic_model() -> dict[str, Any]:
             "predicates": model["ontology"]["predicates"],
             "edges": edges,
             "edge_count": len(edges),
+            "excluded_unresolved_references": unresolved,
+            "excluded_unresolved_reference_count": len(unresolved),
         },
     }
 
@@ -134,6 +156,7 @@ def jsonld_document(graph: dict[str, Any]) -> dict[str, Any]:
             }
             for edge in graph["ontology"]["edges"]
         ],
+        "excluded_unresolved_references": graph["ontology"]["excluded_unresolved_references"],
     }
 
 
@@ -144,6 +167,7 @@ def turtle_document(graph: dict[str, Any]) -> str:
         "",
         "# Generated from canonical TIG concept artifacts.",
         "# These triples have descriptive-reference effect only; source repositories retain normative authority.",
+        "# Unresolved legacy references are excluded from triples and reported in the JSON/JSON-LD evidence.",
         "",
     ]
     iri_by_predicate = {
