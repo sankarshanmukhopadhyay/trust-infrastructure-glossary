@@ -3,12 +3,12 @@
 [![Validate Trust Infrastructure Glossary](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/actions/workflows/validate-governance-glossary.yml/badge.svg)](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/actions/workflows/validate-governance-glossary.yml)
 [![Pages](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/actions/workflows/pages.yml/badge.svg)](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/actions/workflows/pages.yml)
 ![Concepts](https://img.shields.io/badge/concepts-617-blue)
-![Version](https://img.shields.io/badge/version-v2.1.0-blue)
+![Version](https://img.shields.io/badge/version-v2.2.0-blue)
 ![License](https://img.shields.io/badge/license-OWFa%201.0-blue)
 
 The **Trust Infrastructure Glossary (TIG)** is an independent, governance-executable concept system for digital trust infrastructure. It combines plain-English and formal definitions with stable concept identifiers, language-tagged designations, provenance, lifecycle and assurance semantics, semantic relationships, cross-vocabulary mappings, deterministic validation, and machine-readable publication.
 
-Version `v2.1.0` extends the v2 semantic contract with foundational portfolio vocabulary for accountability, assurance, decision, effect, and evidence. The current v2.2 development tranche adds a governed, source-derived taxonomy and lightweight ontology without changing the authority of canonical concept artifacts or downstream specifications.
+Version `v2.2.0` adds a governed taxonomy and lightweight ontology projection over the v2 concept corpus. It introduces a machine-readable portfolio candidate inventory, controlled SKOS-aligned predicates, explicit taxonomy assertions over canonical TIG concept IDs, deterministic JSON/JSON-LD/RDF semantic artifacts, and executable safeguards preventing descriptive ontology assertions from becoming downstream normative authority.
 
 ## Start here
 
@@ -44,10 +44,10 @@ The legacy `term` and `aliases` fields remain in v2 as compatibility fields for 
 TIG keeps these layers deliberately separate:
 
 - **Vocabulary:** canonical concept artifacts remain the source of semantic authority.
-- **Taxonomy:** hierarchy is deterministically derived from canonical `broader` / `narrower` relations.
-- **Lightweight ontology:** typed SKOS-aligned edges are deterministically derived from canonical semantic relations with provenance and a non-normative authority effect.
+- **Taxonomy:** hierarchy is deterministically derived from canonical concept relations plus explicit governed hierarchy assertions between canonical TIG concept IDs.
+- **Lightweight ontology:** typed SKOS-aligned edges are deterministically derived with provenance and a non-normative authority effect.
 
-See [Taxonomy & Lightweight Ontology](governance/semantic/taxonomy-ontology.md) for the authority boundary, predicate contract and validation model.
+See [Taxonomy & Lightweight Ontology](governance/semantic/taxonomy-ontology.md) for the authority boundary, predicate contract, taxonomy assertion model and validation rules.
 
 ## Repository operating model
 
@@ -57,7 +57,7 @@ See [Taxonomy & Lightweight Ontology](governance/semantic/taxonomy-ontology.md) 
 | `schemas/` | JSON Schema and controlled vocabularies | **Validation contract** |
 | `profiles/` | Reusable vocabulary profiles | Curated downstream consumption layer |
 | `tools/` | Validation, generation, and quality utilities | Publication and integrity control plane |
-| `governance/` | Maintainer, semantic, provenance, assurance, and publication guidance | Maintainer-authored governance |
+| `governance/` | Maintainer, semantic, provenance, assurance, taxonomy and publication guidance | Maintainer-authored governance |
 | `_terms/` | Generated Jekyll concept pages | **Generated output only** |
 | `generated/json/` | JSON, JSON-LD, taxonomy, ontology, manifests, inventories and reports | **Generated output only** |
 | `generated/rdf/` | SKOS-compatible Turtle, including ontology projection | **Generated output only** |
@@ -65,11 +65,11 @@ See [Taxonomy & Lightweight Ontology](governance/semantic/taxonomy-ontology.md) 
 
 ## Source-of-truth policy
 
-Edit `glossary/terms/*.yaml`, not generated renderings. The taxonomy and ontology are projections over canonical concepts, not independent sources of authority. Generated paths must be reproducible from source and regenerated in the same change set.
+Edit `glossary/terms/*.yaml` for concept-local semantics. Use `governance/taxonomy-relations.yaml` only for reviewed additive hierarchy assertions between existing canonical concept IDs where rewriting inherited concept artifacts is neither necessary nor desirable. Generated taxonomy and ontology outputs are projections, not independent sources of authority.
 
 ## Independence and lineage
 
-This project originated as a fork of the Trust over IP Main Glossary. The v2.0.0 release created an independent project identity, authority model, semantic contract, release process, and source-intake policy. v2.1.0 preserves those boundaries while expanding reusable vocabulary from the active trust-infrastructure portfolio.
+This project originated as a fork of the Trust over IP Main Glossary. The v2.0.0 release created an independent project identity, authority model, semantic contract, release process, and source-intake policy. v2.1.0 expanded foundational portfolio vocabulary; v2.2.0 adds governed semantic projection while preserving those authority boundaries.
 
 The project does **not** erase that lineage:
 
@@ -150,7 +150,7 @@ bundle exec jekyll serve
 4. Add plain-English text without weakening the formal definition.
 5. Record mapping strength deliberately; do not use `exact` when meanings differ materially.
 6. Retain provenance and applicable licensing/attribution evidence.
-7. Treat predicate additions and authority-effect changes as semantic-governance changes requiring explicit review.
+7. Treat predicate additions, taxonomy assertions and authority-effect changes as semantic-governance changes requiring explicit review.
 8. Regenerate and review all derived artifacts before merge.
 
 See [Contributing](Contributing.md), [Repository Operating Model](governance/repository-operating-model.md), and [Term Authoring Guide](governance/term-authoring-guide.md).
