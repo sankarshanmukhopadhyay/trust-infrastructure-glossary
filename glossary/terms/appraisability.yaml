@@ -67,7 +67,7 @@ provenance:
 semantic_relations:
   related:
   - urn:tig:concept:trust-basis
-  - urn:tig:concept:verifiability
+  - urn:tig:concept:verifiable
 concept_mappings:
   exact: []
   close: []
