@@ -57,6 +57,32 @@ def main() -> int:
         if not edge["provenance"].get("concept_artifact") or not edge["provenance"].get("classification"):
             errors.append(f"edge lacks provenance: {edge['subject']} {edge['predicate']} {edge['object']}")
 
+    # Inherited source artifacts can contain semantic references whose targets were
+    # never promoted into the canonical TIG corpus. They must remain auditable source
+    # evidence, but they must never enter the typed ontology as dangling edges.
+    excluded = graph["ontology"].get("excluded_unresolved_references") or []
+    for edge in excluded:
+        source = edge.get("provenance", {}).get("concept_artifact", "<unknown>")
+        if edge.get("subject") not in concepts:
+            errors.append(f"excluded relation subject does not resolve: {edge.get('subject')} (source: {source})")
+        if edge.get("object") in concepts:
+            errors.append(
+                f"excluded relation target now resolves and must be projected: {edge.get('object')} "
+                f"(source: {source}, subject: {edge.get('subject')})"
+            )
+        if edge.get("predicate") not in predicates:
+            errors.append(f"excluded relation predicate is not registered: {edge.get('predicate')} (source: {source})")
+        if edge.get("projection_status") != "excluded-unresolved-target":
+            errors.append(f"excluded relation lacks bounded projection status (source: {source})")
+        provenance = edge.get("provenance") or {}
+        if not provenance.get("concept_artifact") or not provenance.get("classification"):
+            errors.append(
+                f"excluded relation lacks provenance: {edge.get('subject')} {edge.get('predicate')} {edge.get('object')}"
+            )
+
+    if graph["ontology"].get("excluded_unresolved_reference_count") != len(excluded):
+        errors.append("excluded unresolved relation count does not match evidence list")
+
     # Determinism is an assurance property: identical sources must yield byte-identical canonical JSON.
     if canonical_json(build_semantic_model()) != canonical_json(build_semantic_model()):
         errors.append("semantic model generation is non-deterministic")
@@ -70,7 +96,8 @@ def main() -> int:
     print(
         "Semantic model validation passed: "
         f"{len(concepts)} concepts, {len(graph['taxonomy']['roots'])} taxonomy roots, "
-        f"{graph['ontology']['edge_count']} typed edges, {len(admitted)} admitted candidates."
+        f"{graph['ontology']['edge_count']} typed edges, {len(excluded)} unresolved legacy references excluded, "
+        f"{len(admitted)} admitted candidates."
     )
     return 0
 
