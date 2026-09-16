@@ -1,0 +1,45 @@
+schema_version: '1.0'
+model_id: urn:tig:semantic-model:v2.2
+status: experimental-additive
+authority:
+  normative_effect: none
+  assertion_effect: descriptive-reference
+  source_authority_policy: Source repositories retain authority for their own normative claims; TIG does not promote source observations into normative requirements.
+taxonomy:
+  derivation: canonical-semantic-relations
+  hierarchy_predicates:
+    - broader
+    - narrower
+  root_policy: concepts-without-canonical-broader-parent
+  featured_roots:
+    - urn:tig:concept:actor
+    - urn:tig:concept:assurance
+    - urn:tig:concept:evidence
+    - urn:tig:concept:delegation
+ontology:
+  derivation: canonical-semantic-relations
+  edge_provenance_required: true
+  predicates:
+    broader:
+      iri: http://www.w3.org/2004/02/skos/core#broader
+      inverse: narrower
+      domain: Concept
+      range: Concept
+      authority_effect: descriptive-reference
+    narrower:
+      iri: http://www.w3.org/2004/02/skos/core#narrower
+      inverse: broader
+      domain: Concept
+      range: Concept
+      authority_effect: descriptive-reference
+    related:
+      iri: http://www.w3.org/2004/02/skos/core#related
+      inverse: related
+      symmetric: true
+      domain: Concept
+      range: Concept
+      authority_effect: descriptive-reference
+outputs:
+  taxonomy_json: generated/json/tig-taxonomy.json
+  ontology_jsonld: generated/json/tig-ontology.jsonld
+  ontology_turtle: generated/rdf/tig-ontology.ttl

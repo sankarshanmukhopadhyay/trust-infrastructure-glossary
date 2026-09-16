@@ -25,10 +25,21 @@ jobs:
         run: |
           python tools/validate_governance_glossary.py
           python tools/validate_profiles.py
+          python tools/validate_semantic_model.py
           python tools/build_governance_glossary.py
           python tools/build_quality_report.py
+          python tools/build_semantic_model.py
           python tools/build_jekyll_site.py
 
-      - name: Fail if generated artifacts drifted
+      - name: Upload semantic model evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: tig-semantic-model
+          path: |
+            generated/json/tig-taxonomy.json
+            generated/json/tig-ontology.jsonld
+            generated/rdf/tig-ontology.ttl
+
+      - name: Fail if tracked generated artifacts drifted
         run: |
           git diff --exit-code -- . ':!docs/'
