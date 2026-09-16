@@ -13,8 +13,8 @@ TIG v2.2 adds an additive semantic projection over the existing concept corpus. 
 | Layer | Purpose | Authority |
 |---|---|---|
 | Vocabulary | Stable concepts, designations, definitions and provenance | Canonical concept artifacts |
-| Taxonomy | Navigable hierarchy derived from canonical `broader` / `narrower` relations | Derived; no independent semantic authority |
-| Lightweight ontology | Typed graph derived from canonical `broader`, `narrower` and `related` relations | Derived descriptive-reference assertions |
+| Taxonomy | Navigable hierarchy over canonical TIG concept IDs | Governed descriptive assertions; no independent normative authority |
+| Lightweight ontology | Typed graph derived from canonical semantic relations plus governed taxonomy assertions | Derived descriptive-reference assertions |
 
 The distinction is deliberate. A vocabulary answers **what concept is this?** A taxonomy answers **where does it sit?** The lightweight ontology answers **what governed semantic relationship is asserted between two concepts?**
 
@@ -24,15 +24,26 @@ All generated semantic edges have `descriptive-reference` effect. TIG MUST NOT t
 
 The machine-readable policy is `governance/semantic-model.yaml`; validation fails if the model declares an independent normative effect.
 
+## Canonical relation sources
+
+The v2.2 graph has two governed input surfaces:
+
+1. `glossary/terms/*.yaml` supplies concept-local `broader`, `narrower`, and `related` relations.
+2. `governance/taxonomy-relations.yaml` supplies explicit additive hierarchy assertions between existing canonical TIG concept IDs when a cross-cutting classification should not require rewriting inherited concept artifacts.
+
+Every taxonomy assertion must resolve both endpoints, use only `broader` or `narrower`, provide a rationale and provenance, and retain `descriptive-reference` authority effect. The overlay cannot create concepts and cannot override concept definitions.
+
 ## Derivation
 
-`tools/build_semantic_model.py` scans canonical concept artifacts and deterministically produces:
+`tools/build_semantic_model.py` deterministically produces:
 
 - `generated/json/tig-taxonomy.json`;
 - `generated/json/tig-ontology.jsonld`;
 - `generated/rdf/tig-ontology.ttl`.
 
-Taxonomy roots are computed as concepts without a canonical broader parent. Hierarchical edges are normalized from both `broader` and `narrower`. Ontology edges retain their originating concept artifact and provenance classification.
+Taxonomy roots are computed as concepts without a governed broader parent. Hierarchical edges are normalized from both `broader` and `narrower`. Ontology edges retain provenance identifying either the originating concept artifact or the governed taxonomy assertion set.
+
+Inherited semantic references whose targets are not canonical TIG concepts remain auditable source evidence but are excluded from typed ontology projection. The JSON/JSON-LD evidence reports those exclusions explicitly; Turtle never emits a dangling triple.
 
 ## Governed predicates
 
@@ -49,7 +60,7 @@ python tools/validate_semantic_model.py
 python tools/build_semantic_model.py
 ```
 
-Validation tests resolvable featured roots, registered predicates, domain/range constraints, inverse-predicate contracts, edge provenance, descriptive authority effect, candidate disposition and deterministic generation. Existing glossary validation remains independently required.
+Validation tests resolvable featured roots, governed taxonomy assertions, registered predicates, domain/range constraints, inverse-predicate contracts, edge provenance, descriptive authority effect, candidate disposition, exclusion of unresolved legacy targets, non-empty taxonomy hierarchy and deterministic generation. Existing glossary validation remains independently required.
 
 ## Candidate admission
 
