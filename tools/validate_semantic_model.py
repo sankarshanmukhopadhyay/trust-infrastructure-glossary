@@ -4,13 +4,22 @@ from __future__ import annotations
 
 import sys
 
-from semantic_model_core import CANDIDATE_PATH, MODEL_PATH, build_semantic_model, canonical_json, load_concepts, load_yaml
+from semantic_model_core import (
+    CANDIDATE_PATH,
+    MODEL_PATH,
+    TAXONOMY_RELATIONS_PATH,
+    build_semantic_model,
+    canonical_json,
+    load_concepts,
+    load_yaml,
+)
 
 
 def main() -> int:
     errors: list[str] = []
     model = load_yaml(MODEL_PATH)
     candidates = load_yaml(CANDIDATE_PATH)
+    taxonomy_relations = load_yaml(TAXONOMY_RELATIONS_PATH)
     concepts, _ = load_concepts()
 
     authority = model.get("authority") or {}
@@ -45,7 +54,29 @@ def main() -> int:
         if concept_id not in concepts:
             errors.append(f"featured root does not resolve: {concept_id}")
 
+    assertions = taxonomy_relations.get("assertions") or []
+    if not assertions:
+        errors.append("governed taxonomy assertion set must not be empty")
+    for assertion in assertions:
+        subject = assertion.get("subject")
+        predicate = assertion.get("predicate")
+        obj = assertion.get("object")
+        provenance = assertion.get("provenance") or {}
+        if subject not in concepts:
+            errors.append(f"taxonomy assertion subject does not resolve: {subject}")
+        if obj not in concepts:
+            errors.append(f"taxonomy assertion object does not resolve: {obj}")
+        if predicate not in {"broader", "narrower"}:
+            errors.append(f"taxonomy assertion predicate must be broader/narrower: {predicate}")
+        if not assertion.get("rationale"):
+            errors.append(f"taxonomy assertion lacks rationale: {subject} {predicate} {obj}")
+        if not provenance.get("classification") or not provenance.get("source"):
+            errors.append(f"taxonomy assertion lacks provenance: {subject} {predicate} {obj}")
+
     graph = build_semantic_model()
+    if graph["taxonomy"].get("hierarchy_edge_count", 0) < 1:
+        errors.append("derived taxonomy must contain at least one governed hierarchy edge")
+
     for edge in graph["ontology"]["edges"]:
         source = edge["provenance"].get("concept_artifact", "<unknown>")
         if edge["subject"] not in concepts:
@@ -57,9 +88,6 @@ def main() -> int:
         if not edge["provenance"].get("concept_artifact") or not edge["provenance"].get("classification"):
             errors.append(f"edge lacks provenance: {edge['subject']} {edge['predicate']} {edge['object']}")
 
-    # Inherited source artifacts can contain semantic references whose targets were
-    # never promoted into the canonical TIG corpus. They must remain auditable source
-    # evidence, but they must never enter the typed ontology as dangling edges.
     excluded = graph["ontology"].get("excluded_unresolved_references") or []
     for edge in excluded:
         source = edge.get("provenance", {}).get("concept_artifact", "<unknown>")
@@ -83,7 +111,6 @@ def main() -> int:
     if graph["ontology"].get("excluded_unresolved_reference_count") != len(excluded):
         errors.append("excluded unresolved relation count does not match evidence list")
 
-    # Determinism is an assurance property: identical sources must yield byte-identical canonical JSON.
     if canonical_json(build_semantic_model()) != canonical_json(build_semantic_model()):
         errors.append("semantic model generation is non-deterministic")
 
@@ -96,6 +123,7 @@ def main() -> int:
     print(
         "Semantic model validation passed: "
         f"{len(concepts)} concepts, {len(graph['taxonomy']['roots'])} taxonomy roots, "
+        f"{graph['taxonomy']['hierarchy_edge_count']} hierarchy edges, "
         f"{graph['ontology']['edge_count']} typed edges, {len(excluded)} unresolved legacy references excluded, "
         f"{len(admitted)} admitted candidates."
     )
