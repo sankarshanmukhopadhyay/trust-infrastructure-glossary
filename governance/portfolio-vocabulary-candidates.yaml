@@ -1,0 +1,54 @@
+schema_version: '1.0'
+status: governed-candidate-inventory
+admission_rule: Admit portable cross-repository concepts without importing source-repository normative authority.
+candidates:
+  admitted_v2_2:
+    - actor
+    - authority-concept
+    - evidence-concept
+    - assurance-concept
+    - lifecycle-concept
+    - privacy-concept
+    - interoperability-concept
+    - registry-directory-concept
+    - assurance-subject
+    - assurance-obligation
+    - assurance-inference
+    - reassessment-trigger
+    - material-change
+    - evidence-provenance
+    - evidence-freshness
+    - evidence-admissibility
+    - evidence-producer
+    - semantic-ownership
+    - semantic-preservation
+    - correlation-surface
+  deferred:
+    - authority-boundary
+    - delegation-lineage
+    - scope-attenuation
+    - trust-domain-transition
+    - historical-authority-resolution
+    - revocation-propagation
+    - assurance-gap
+    - assurance-proposition
+    - decision-receipt
+    - evidence-bundle
+    - remediation-manifest
+    - conformance-class
+    - conformance-target
+    - control-credit
+    - semantic-drift
+    - bounded-finding
+    - observer-model
+    - declared-correlation
+    - observable-correlation
+    - effective-correlation
+    - authoritative-public-state
+    - namespace-authority
+    - publication-authority
+    - record-lifecycle
+    - directory-federation
+notes:
+  - Deferred means useful but not yet promoted; it is not a rejection.
+  - Portfolio sources remain authoritative for their own normative semantics.
