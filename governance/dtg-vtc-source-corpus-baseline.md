@@ -61,3 +61,26 @@ Do **not** publish a numerical completeness percentage until the approved corpus
 **Precedence finding:** DTG Credentials and VTI each distinguish canonical specifications from supporting task-force/implementation repositories. The Trust Tasks registry SPEC explicitly points to a canonical source commit. The future crosswalk must key mappings to these actual authoritative texts, not to descriptive README phrases.
 
 **Remaining G0 impediments:** obtain a readable and properly attributable DTG Glossary source; inspect the substantive Credentials Core document and VTI chapters; complete source-level copyright/license determination. No numerical coverage can yet be computed.
+
+## Specification-native terminology evidence — third increment
+
+The actual canonical specification repositories were inspected beyond their README entry points:
+
+| Canonical specification | Terminology introduction file SHA | Authority language in source |
+| --- | --- | --- |
+| [VTI specification terminology](https://github.com/trustoverip/dtgwg-vti-spec/blob/main/spec/terms-and-definitions-intro.md) | `0c31feeec33e3824246f23774d956932edc1fec5` | Section expressly **informative**, with a warning not to equate capability/delegation with authority and a separate distinction for credential subject attributes; borrowed glossary terms are transcluded |
+| [Trust Tasks specification terminology](https://github.com/trustoverip/dtgwg-trust-tasks-spec/blob/main/spec/terms-and-definitions-intro.md) | `3ad22860cb3485ef8d429452b50e0702e04e3c9c` | Section expressly **normative**; italicized defined terms have the meanings supplied there |
+| [Credentials specification terminology](https://github.com/trustoverip/dtgwg-cred-spec/blob/main/spec/terms-and-definitions-intro.md) | `f5295cda8abf0a1d8d68252ba756d81d07cda219` | Section expressly **informative**, terms drawn from the externally maintained DTG Glossary at [ToIP Atlassian](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/442073089/DTG+Glossary) |
+
+All three `specs.json` manifests identify `spec/terms-definitions` as the term source directory. **This is a directory declaration, not a verified inventory of entries or their semantics.** Complete extraction still requires enumerating the actual tree and retrieving source files at a fixed commit.
+
+### Source-version consistency finding
+
+The [Credentials Task Force README](https://github.com/trustoverip/dtgwg-cred-tf/blob/main/README.md) describes **six** DTG Core Credential types, while the [canonical specification's `specs.json`](https://github.com/trustoverip/dtgwg-cred-spec/blob/main/specs.json) currently describes **seven**. The mismatch is established as a discrepancy between those two inspected descriptions. It does **not** establish which count the authoritative specification body actually defines. The source-of-truth count must be determined from the current normative credential taxonomy text at a pinned revision before any glossary admission or coverage measurement.
+
+### Admission decision
+
+- Prefer source-defined terms and actual normative/informative section labels over promotional or descriptive README text.
+- Pin source code at a repository commit; retain per-file blob SHA as secondary integrity evidence.
+- Distinguish referenced external definitions from definitions owned by the current spec.
+- Preserve unresolved discrepancies as `review_required`; do not admit asserted exact mappings or publish denominators based on inconsistent sources.
