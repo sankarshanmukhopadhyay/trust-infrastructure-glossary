@@ -1,0 +1,234 @@
+{
+  "schema_version": "0.1",
+  "scope": "17 lexically matched records among 106 explicit definitions at pinned source revisions",
+  "status": "first-pass semantic comparison; non-normative and not approved",
+  "approval_required": true,
+  "records": [
+    {
+      "source_repository": "trustoverip/dtgwg-cred-spec",
+      "source_commit": "4088056a15f6e74847eb422e1c2bae33684272ea",
+      "source_path": "spec/terms-definitions/dtg_verifiable_identifier.md",
+      "source_label": "DTG verifiable identifier",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:verifiable-identifier",
+        "urn:tig:concept:vid"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "rationale": "DTG-specific identifiers introduce graph-node and correlation-scope constraints absent from a generic VID reference.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-cred-spec",
+      "source_commit": "4088056a15f6e74847eb422e1c2bae33684272ea",
+      "source_path": "spec/terms-definitions/verifiable_credential.md",
+      "source_label": "VC",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:vc",
+        "urn:tig:concept:verifiable-credential"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "rationale": "Cryptographically verifiable credentials overlap in core meaning, but TIG describes several credential representation profiles.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/party.md",
+      "source_label": "party",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:party"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "rationale": "The Trust Tasks participant must be identified by a VID; TIG's general party concept has a broader autonomy-focused definition.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/proof.md",
+      "source_label": "proof",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:data-integrity-proof",
+        "urn:tig:concept:proof"
+      ],
+      "preliminary_class": "ambiguous_mapping",
+      "rationale": "Trust Tasks means an optional W3C Data Integrity Proof attached to a task document; the TIG generic proof and Data Integrity Proof concepts have differing scope.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/trust_task.md",
+      "source_label": "Trust Task",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:trust-task"
+      ],
+      "preliminary_class": "material_divergence",
+      "rationale": "Trust Tasks describes bilateral verifiable work and linked task documents; TIG's inherited term describes a Layer-3 trust-task-protocol activity.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/verifiable_identifier.md",
+      "source_label": "VID",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:verifiable-identifier",
+        "urn:tig:concept:vid"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "rationale": "Trust Tasks permits several identifier schemes subject to a consumer trust framework; verify against TIG's proof-of-control and discovery criteria.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/assurance_level.md",
+      "source_label": "assurance level",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:assurance-level"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "rationale": "VTI focuses on authentication strength for sessions and refresh/credential lifetime; TIG covers assurance of multiple trust claims.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/capability.md",
+      "source_label": "capability",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:capability"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "rationale": "VTI defines an enumerated power constrained by a role ceiling; TIG covers general action ability or permission.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/delegate.md",
+      "source_label": "delegate",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:delegation"
+      ],
+      "preliminary_class": "material_divergence",
+      "rationale": "VTI defines an acting subject, whereas TIG delegation defines the act of authorizing another party; not interchangeable nouns.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/principal.md",
+      "source_label": "principal",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:principal"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "rationale": "Both refer to the party represented by an agent, but VTI adds node authority and narrower-client constraints.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/recognition.md",
+      "source_label": "recognition",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:recognition"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "rationale": "VTI sets concrete foreign-community recognition checks and non-transitivity; TIG recognition is a broader governed acceptance.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/role.md",
+      "source_label": "role",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:role"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "rationale": "VTI role is a maximum capability ceiling in an access control entry, not an independent authority grant.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/subject.md",
+      "source_label": "subject",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:subject"
+      ],
+      "preliminary_class": "material_divergence",
+      "rationale": "VTI means the identifier named by an access-control entry; TIG predominantly means an entity described by credential claims.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/trust_context.md",
+      "source_label": "trust context",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:trust-context"
+      ],
+      "preliminary_class": "material_divergence",
+      "rationale": "VTI means a hierarchical isolation compartment for keys, state and delegated authority; TIG means the context of a trust decision.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/trust_registry.md",
+      "source_label": "trust registry",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:trust-registry"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "rationale": "VTI describes an authority lookup that does not establish current authority; TIG describes an authoritative registry of governed trust-system information.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/trust_task.md",
+      "source_label": "trust task",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:trust-task"
+      ],
+      "preliminary_class": "material_divergence",
+      "rationale": "VTI describes a versioned node-exposed operation; TIG's inherited description is a generic trust-task-protocol activity.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/verifiable_credential.md",
+      "source_label": "VC",
+      "tig_lexical_candidates": [
+        "urn:tig:concept:vc",
+        "urn:tig:concept:verifiable-credential"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "rationale": "VTI's concise VC definition overlaps with TIG's generic verifiable credential but TIG includes profile variants requiring scoped review.",
+      "decision_state": "requires_semantic_approval",
+      "mapping_assertion": null
+    }
+  ]
+}
