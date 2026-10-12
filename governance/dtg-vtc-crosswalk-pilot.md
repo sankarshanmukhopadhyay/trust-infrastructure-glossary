@@ -52,3 +52,9 @@ These descriptions have **different objects and boundaries**: an interaction/tas
 The pilot now references the [canonical Trust Tasks specification header](https://github.com/trustoverip/dtgwg-trust-tasks-spec/blob/main/spec/header.md), rather than the registry's generated `SPEC.md`. That source declares **Working Draft 0.7.0** (2026-09-24). The registry-generated `SPEC.md` identifies canonical repository commit `52ba2efbf05ab1f3b9af9929dc9a8c6350a88826`; the crosswalk records this source lineage separately from the directly observed header file blob SHA. **A commit SHA in the manifest has not yet been verified against the entire referenced repository tree**; treat it as an upstream-reported pin pending retrieval at that exact revision.
 
 The validator now checks the syntax of optional `canonical_commit` values and rejects malformed values, but it does **not** cryptographically establish that the remote revision contains the recorded blob. Remote evidence replay remains a later conformance task.
+
+## Credential taxonomy evidence increment
+
+The [DTG Credentials Core specification body](https://github.com/trustoverip/dtgwg-cred-spec/blob/main/spec/body.md), observed blob `d45e69bb2f4e4ba9ec84f86c6cf72351a0dc36b1`, identifies seven concrete credential subtypes in its **informative** taxonomy: VMC, VRC, VDC, VIC, VPC, VSC, VAC. These are now included as **seven additional unresolved candidate rows** in the pilot, with no assumed TIG `concept_id` mapping. VEC/VWC are profiles of VSC, not separate type rows; RCard is a VDS, not a credential subtype.
+
+A regression fixture asserts this extracted seven-type set and that all seven remain unadjudicated. This is evidence of accurately transcribing one bounded taxonomy section, **not evidence of overall DTG/VTC glossary completeness**.
