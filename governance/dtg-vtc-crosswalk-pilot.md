@@ -58,3 +58,11 @@ The validator now checks the syntax of optional `canonical_commit` values and re
 The [DTG Credentials Core specification body](https://github.com/trustoverip/dtgwg-cred-spec/blob/main/spec/body.md), observed blob `d45e69bb2f4e4ba9ec84f86c6cf72351a0dc36b1`, identifies seven concrete credential subtypes in its **informative** taxonomy: VMC, VRC, VDC, VIC, VPC, VSC, VAC. These are now included as **seven additional unresolved candidate rows** in the pilot, with no assumed TIG `concept_id` mapping. VEC/VWC are profiles of VSC, not separate type rows; RCard is a VDS, not a credential subtype.
 
 A regression fixture asserts this extracted seven-type set and that all seven remain unadjudicated. This is evidence of accurately transcribing one bounded taxonomy section, **not evidence of overall DTG/VTC glossary completeness**.
+
+## Seven-type concept lookup checkpoint
+
+A filename-based probe for direct canonical concept files matching the seven DTG credential type labels found an existing [delegation-credential](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/blob/main/glossary/terms/delegation-credential.yaml) concept. Its inherited generic definition is **“A credential used to perform delegation.”** It is not established as semantically identical to DTG's concrete `DelegationCredential` (VDC). The crosswalk therefore now records `urn:tig:concept:delegation-credential` with `review_required`, not `covered`.
+
+Expected hyphenated filenames for the other six concrete credential types did not resolve. This **cannot be interpreted as a verified absence of those concepts**: existing canonical IDs, alternative designations, broader concepts, or files using different slugs may be relevant. An exhaustive designation/index scan is required before classifying them as missing.
+
+The pilot regression tests preserve the VDC candidate and its review-required status, making accidental promotion to `covered` visible in code review.
