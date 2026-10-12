@@ -85,9 +85,9 @@
       "label": "DelegationCredential",
       "source_id": "dtg-credential-taxonomy",
       "state": "candidate",
-      "concept_id": null,
-      "disposition": "unresolved",
-      "rationale": "Concrete DTGCredential subtype VDC identified in informative taxonomy; TIG concept mapping and semantic equivalence not yet adjudicated."
+      "concept_id": "urn:tig:concept:delegation-credential",
+      "disposition": "review_required",
+      "rationale": "Existing TIG generic delegation-credential concept has broad definition 'A credential used to perform delegation.' DTG VDC is a concrete credential subtype; mapping is candidate only, not exact. Source-specific semantics need adjudication."
     },
     {
       "label": "InvitationCredential",
