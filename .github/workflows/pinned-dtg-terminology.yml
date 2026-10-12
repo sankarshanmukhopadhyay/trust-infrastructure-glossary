@@ -54,8 +54,15 @@ jobs:
             --manifest tig/governance/coverage/pinned-dtg-spec-term-trees.json \
             --sources-root sources \
             --output dtg-evidence/pinned-terminology.json
+      - name: Reconcile pinned source definitions with TIG designations
+        run: |
+          python tig/tools/reconcile_pinned_dtg_terminology.py \
+            --inventory dtg-evidence/pinned-terminology.json \
+            --terms tig/glossary/terms \
+            --output dtg-evidence/pinned-lexical-crosswalk.json
+          python -m unittest discover -s tig/tests -p 'test_reconcile_pinned_dtg_terminology.py' -v
       - name: Upload pinned source evidence
         uses: actions/upload-artifact@v4
         with:
           name: tig-pinned-dtg-terminology
-          path: dtg-evidence/pinned-terminology.json
+          path: dtg-evidence/*.json
