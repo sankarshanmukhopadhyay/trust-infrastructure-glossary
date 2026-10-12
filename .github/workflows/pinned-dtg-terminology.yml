@@ -6,6 +6,7 @@ on:
     paths:
       - 'tools/extract_spec_up_t_terms.py'
       - 'tools/build_pinned_dtg_inventory.py'
+      - 'tools/build_dtg_scope_assurance_ledger.py'
       - '.github/workflows/pinned-dtg-terminology.yml'
       - 'governance/coverage/pinned-dtg-spec-term-trees.json'
   push:
@@ -63,6 +64,14 @@ jobs:
             --terms tig/glossary/terms \
             --output dtg-evidence/pinned-lexical-crosswalk.json
           python -m unittest discover -s tig/tests -p 'test_reconcile_pinned_dtg_terminology.py' -v
+      - name: Build complete scoped assurance disposition ledger
+        run: |
+          python tig/tools/build_dtg_scope_assurance_ledger.py \
+            --crosswalk dtg-evidence/pinned-lexical-crosswalk.json \
+            --first-pass tig/governance/coverage/dtg-semantic-first-pass.json \
+            --proposals tig/governance/coverage/dtg-semantic-decision-proposals.json \
+            --output dtg-evidence/source-assurance-ledger.json
+          python -m unittest discover -s tig/tests -p 'test_dtg_scope_assurance_ledger.py' -v
       - name: Upload pinned source evidence
         uses: actions/upload-artifact@v4
         with:
