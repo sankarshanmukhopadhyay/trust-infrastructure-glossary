@@ -16,11 +16,12 @@ class ExtractSourceTermsTests(unittest.TestCase):
             directory = root / "spec" / "terms-definitions"
             directory.mkdir(parents=True)
             (directory / "b.md").write_text("See [[ref: Not a definition]].\n[[def: Trust Task]]\n")
-            (directory / "a.md").write_text("[[def: Authority Credential]]\n[[def: Delegation Credential]]\n")
+            (directory / "a.md").write_text("[[def: VAC, authority credential, VACs]]\n[[def: Delegation Credential]]\n")
             result = extract(root, "trustoverip/example-spec", COMMIT)
             self.assertEqual([x["label"] for x in result], [
-                "Authority Credential", "Delegation Credential", "Trust Task",
+                "VAC", "Delegation Credential", "Trust Task",
             ])
+            self.assertEqual(result[0]["aliases"], ["authority credential", "VACs"])
             self.assertTrue(all(x["semantic_equivalence"] == "not_established" for x in result))
             self.assertEqual(result, extract(root, "trustoverip/example-spec", COMMIT))
 
