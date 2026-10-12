@@ -33,6 +33,11 @@ jobs:
           python tools/build_site_information_architecture.py
           python tools/validate_site_ia.py
 
+      - name: Validate source crosswalk pilot and negative fixtures
+        run: |
+          python tools/validate_source_crosswalk.py
+          python -m unittest discover -s tests -p 'test_source_crosswalk.py' -v
+
       - name: Upload semantic model evidence
         uses: actions/upload-artifact@v4
         with:
