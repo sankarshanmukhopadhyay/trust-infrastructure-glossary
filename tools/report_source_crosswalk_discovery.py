@@ -2,11 +2,13 @@
 """Inspect every canonical TIG concept for a candidate designation; no semantic equivalence inference."""
 import argparse
 import json
+import re
 from pathlib import Path
 import yaml
 
 
 def normalize(value):
+    value = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", value)
     return " ".join(value.casefold().replace("-", " ").replace("_", " ").split())
 
 
