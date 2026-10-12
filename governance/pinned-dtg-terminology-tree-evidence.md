@@ -21,3 +21,9 @@ The [pinned terminology workflow](../.github/workflows/pinned-dtg-terminology.ym
 **Important limits:** Normative versus informative authority is decided by each source, not by TIG. Referenced external glossary definitions and definitions embedded outside `spec/terms-definitions/` are excluded. The coverage denominator for the entire DTG/VTC ecosystem remains undefined. These extraction records require semantic adjudication against TIG before exact/close/broad/narrow mapping claims or concept edits.
 
 Re-run the workflow after any deliberate pinned source revision update and review both the manifest and evidence differences. Prefer to keep a historical release copy of accepted source inventories when establishing later time-as-of comparisons.
+
+## Authenticated, source-scoped lexical reconciliation
+
+The same CI workflow also uses `tools/reconcile_pinned_dtg_terminology.py` to compare each extracted primary term **and all Spec-Up-T aliases** against the canonical TIG concept `term`, `aliases`, and `designations` indexes. The artifact `pinned-lexical-crosswalk.json` reports per-source file evidence, lexical candidate IDs, and an exact **scoped source-definition count**.
+
+`source_definition_denominator` is meaningful **only for the explicit definitions in these three pinned directories**, not for DTG/VTC overall. `semantic_coverage_percentage` and `semantic_coverage_denominator` are intentionally `null`: every row remains `review_required`, even when an exact designation matches, until actual definition comparison and adjudication. CI tests that aliases match without conferring semantic authority.
