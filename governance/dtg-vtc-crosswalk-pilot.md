@@ -38,3 +38,11 @@ The four candidate labels are not an exhaustive enumeration of any source. There
 3. Review exact/close/broad/narrow semantic mapping distinctions, unknowns and disagreements (#9).
 4. Only then calculate coverage denominators, correct the source-of-truth terms (#10) and publish reconciled results (#12).
 5. Test a bounded real consumer and decide whether broader portfolio checks are justified (#13–#14).
+
+## Verified semantic discrepancy requiring adjudication
+
+The existing TIG [trust-task concept](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/blob/main/glossary/terms/trust-task.yaml) describes a task performed through a trust-task protocol at ToIP stack Layer 3 (inherited ToIP terminology). In contrast, the current [DTGWG Trust Tasks canonical framework README](https://github.com/trustoverip/dtgwg-trust-tasks-spec/blob/main/README.md) describes a self-contained, transport-agnostic, JSON-based outcome document, with the specification published from the canonical `spec/` tree.
+
+These descriptions have **different objects and boundaries**: an interaction/task in a trust-protocol layer versus a portable task description/document. Neither definition should silently overwrite the other. The pilot inventory therefore retains `review_required`; it is **not** an exact semantic match.
+
+**Adjudication required under #9:** establish whether this is a concept specialization, an overloaded designation requiring two separately identified TIG concepts, or an intended successor meaning. Verify against the normative Trust Tasks source and the historical ToIP glossary before choosing. Preserve the existing `urn:tig:concept:trust-task` identity and compatibility until that decision is evidenced; document source versions and licensing in any remediation under #10.
