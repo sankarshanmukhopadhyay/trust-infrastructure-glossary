@@ -41,6 +41,7 @@ jobs:
           python tools/build_source_review_queue.py --output /tmp/tig-review-queue.json
           python -m unittest discover -s tests -p 'test_source_review_queue.py' -v
           python -m unittest discover -s tests -p 'test_extract_spec_up_t_terms.py' -v
+          python -m unittest discover -s tests -p 'test_semantic_first_pass.py' -v
 
       - name: Upload lexical discovery evidence
         uses: actions/upload-artifact@v4
