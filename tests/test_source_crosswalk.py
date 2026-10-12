@@ -12,6 +12,15 @@ IDS = {"urn:tig:concept:trust-task", "urn:tig:concept:trust-registry"}
 
 
 class SourceCrosswalkTests(unittest.TestCase):
+    def test_credential_taxonomy_has_seven_unadjudicated_types(self):
+        rows = [row for row in PILOT["candidates"] if row["source_id"] == "dtg-credential-taxonomy"]
+        self.assertEqual({row["label"] for row in rows}, {
+            "MembershipCredential", "RelationshipCredential", "DelegationCredential",
+            "InvitationCredential", "PersonaCredential", "StatementCredential",
+            "AuthorityCredential",
+        })
+        self.assertTrue(all(row["disposition"] == "unresolved" and row["concept_id"] is None for row in rows))
+
     def test_valid_candidate_corpus(self):
         self.assertEqual(validate(PILOT, IDS), [])
 
