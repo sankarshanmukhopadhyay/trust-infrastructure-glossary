@@ -66,3 +66,15 @@ A filename-based probe for direct canonical concept files matching the seven DTG
 Expected hyphenated filenames for the other six concrete credential types did not resolve. This **cannot be interpreted as a verified absence of those concepts**: existing canonical IDs, alternative designations, broader concepts, or files using different slugs may be relevant. An exhaustive designation/index scan is required before classifying them as missing.
 
 The pilot regression tests preserve the VDC candidate and its review-required status, making accidental promotion to `covered` visible in code review.
+
+## Complete local designation scan (not semantic conformance)
+
+The crosswalk now has a reproducible **full canonical concept scan** rather than a handful of guessed filenames:
+
+```bash
+python tools/report_source_crosswalk_discovery.py --output /tmp/tig-crosswalk-discovery.json
+```
+
+The tool enumerates all `glossary/terms/*.yaml` concepts, indexing canonical `term`, `aliases`, and language-tagged `designations`, with case, separator, and CamelCase normalization. Every candidate receives a list of possible exact normalized designation matches. Output explicitly records `coverage_denominator: null` and `semantic_equivalence: not_established`, because this step does not compare definitions or evaluate source completeness.
+
+CI runs the scan on every PR and uploads the JSON evidence artifact `tig-crosswalk-lexical-discovery`. This replaces the earlier filename-only lookup as a reproducible intake aid; adjudication of every lexical match, source versions and source authority still belongs to #9.
