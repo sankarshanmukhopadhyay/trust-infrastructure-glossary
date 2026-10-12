@@ -37,6 +37,9 @@ def validate(data, term_ids):
             errors.append(f"source {idx}: invalid authority")
         if not isinstance(source.get("url"), str) or not source["url"].startswith("https://"):
             errors.append(f"source {idx}: missing HTTPS reference")
+        revision = source.get("canonical_commit")
+        if revision is not None and (not isinstance(revision, str) or len(revision) != 40 or any(c not in "0123456789abcdef" for c in revision)):
+            errors.append(f"source {idx}: invalid canonical commit SHA")
         sha = source.get("blob_sha")
         if not isinstance(sha, str) or len(sha) != 40 or any(c not in "0123456789abcdef" for c in sha):
             errors.append(f"source {idx}: invalid file blob SHA")
