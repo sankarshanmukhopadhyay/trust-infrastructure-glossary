@@ -1,0 +1,82 @@
+import copy
+import json
+import sys
+import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+from validate_source_crosswalk import validate
+from report_source_crosswalk_discovery import discover
+
+PILOT = json.loads((Path(__file__).resolve().parents[1] / "governance/coverage/dtg-vtc-pilot.json").read_text())
+IDS = {"urn:tig:concept:trust-task", "urn:tig:concept:trust-registry", "urn:tig:concept:delegation-credential"}
+
+
+class SourceCrosswalkTests(unittest.TestCase):
+    def test_credential_taxonomy_has_seven_unadjudicated_types(self):
+        rows = [row for row in PILOT["candidates"] if row["source_id"] == "dtg-credential-taxonomy"]
+        self.assertEqual({row["label"] for row in rows}, {
+            "MembershipCredential", "RelationshipCredential", "DelegationCredential",
+            "InvitationCredential", "PersonaCredential", "StatementCredential",
+            "AuthorityCredential",
+        })
+        self.assertTrue(all(row["disposition"] in {"unresolved", "review_required"} for row in rows))
+        self.assertFalse(any(row["disposition"] == "covered" for row in rows))
+        self.assertTrue(all(row["concept_id"] is None for row in rows if row["disposition"] == "unresolved"))
+
+    def test_vdc_mapping_remains_unadjudicated(self):
+        row = next(x for x in PILOT["candidates"] if x["label"] == "DelegationCredential")
+        self.assertEqual(row["concept_id"], "urn:tig:concept:delegation-credential")
+        self.assertEqual(row["disposition"], "review_required")
+
+    def test_designation_discovery_is_not_semantic_validation(self):
+        from tempfile import TemporaryDirectory
+        import yaml
+        with TemporaryDirectory() as temp:
+            terms = Path(temp)
+            (terms / "vdc.yaml").write_text(yaml.safe_dump({
+                "concept_id": "urn:tig:concept:delegation-credential",
+                "term": "delegation-credential",
+                "designations": [{"label": "Delegation Credential"}]
+            }))
+            rows = discover(PILOT, terms)
+        vdc = next(row for row in rows if row["label"] == "DelegationCredential")
+        self.assertEqual(vdc["lexical_matches"], ["urn:tig:concept:delegation-credential"])
+        self.assertEqual(vdc["semantic_equivalence"], "not_established")
+
+    def test_valid_candidate_corpus(self):
+        self.assertEqual(validate(PILOT, IDS), [])
+
+    def test_unknown_concept_is_rejected(self):
+        data = copy.deepcopy(PILOT)
+        data["candidates"][0]["concept_id"] = "urn:tig:concept:not-real"
+        self.assertTrue(any("unknown concept_id" in error for error in validate(data, IDS)))
+
+    def test_unknown_source_is_rejected(self):
+        data = copy.deepcopy(PILOT)
+        data["candidates"][0]["source_id"] = "unknown"
+        self.assertTrue(any("unknown source_id" in error for error in validate(data, IDS)))
+
+    def test_unreviewed_claim_cannot_be_covered(self):
+        data = copy.deepcopy(PILOT)
+        data["candidates"][0]["disposition"] = "covered"
+        self.assertTrue(any("requires adjudication" in error or "cannot claim coverage" in error for error in validate(data, IDS)))
+
+    def test_duplicate_source_label_rejected(self):
+        data = copy.deepcopy(PILOT)
+        data["candidates"].append(copy.deepcopy(data["candidates"][0]))
+        self.assertTrue(any("duplicate source/label" in error for error in validate(data, IDS)))
+
+    def test_invalid_canonical_revision_rejected(self):
+        data = copy.deepcopy(PILOT)
+        data["sources"][1]["canonical_commit"] = "bad-revision"
+        self.assertTrue(any("invalid canonical commit SHA" in error for error in validate(data, IDS)))
+
+    def test_malformed_sha_rejected(self):
+        data = copy.deepcopy(PILOT)
+        data["sources"][0]["blob_sha"] = "not-a-sha"
+        self.assertTrue(any("invalid file blob SHA" in error for error in validate(data, IDS)))
+
+
+if __name__ == "__main__":
+    unittest.main()
