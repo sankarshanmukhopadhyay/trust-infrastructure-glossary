@@ -48,6 +48,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install extraction dependencies
+        run: python -m pip install pyyaml
       - name: Verify source revisions and extract terms
         run: |
           python tig/tools/build_pinned_dtg_inventory.py \
