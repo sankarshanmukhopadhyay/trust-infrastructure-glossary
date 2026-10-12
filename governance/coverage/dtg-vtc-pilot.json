@@ -12,9 +12,11 @@
     },
     {
       "id": "trust-tasks-spec",
-      "url": "https://github.com/trustoverip/dtgwg-trust-tasks-tf/blob/main/SPEC.md",
-      "blob_sha": "6664fe5506d9d79515dac0c624d9a4bf5184c80e",
-      "authority": "generated-working-draft"
+      "url": "https://github.com/trustoverip/dtgwg-trust-tasks-spec/blob/main/spec/header.md",
+      "blob_sha": "4b3c8d904faeb6f4ab1ce9d3b92ad6ecf04877a1",
+      "authority": "working-draft",
+      "source_version": "Working Draft 0.7.0",
+      "canonical_commit": "52ba2efbf05ab1f3b9af9929dc9a8c6350a88826"
     },
     {
       "id": "dtg-architecture",
