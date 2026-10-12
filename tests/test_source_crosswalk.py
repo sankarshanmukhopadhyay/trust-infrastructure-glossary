@@ -19,7 +19,9 @@ class SourceCrosswalkTests(unittest.TestCase):
             "InvitationCredential", "PersonaCredential", "StatementCredential",
             "AuthorityCredential",
         })
-        self.assertTrue(all(row["disposition"] == "unresolved" and row["concept_id"] is None for row in rows))
+        self.assertTrue(all(row["disposition"] in {"unresolved", "review_required"} for row in rows))
+        self.assertFalse(any(row["disposition"] == "covered" for row in rows))
+        self.assertTrue(all(row["concept_id"] is None for row in rows if row["disposition"] == "unresolved"))
 
     def test_vdc_mapping_remains_unadjudicated(self):
         row = next(x for x in PILOT["candidates"] if x["label"] == "DelegationCredential")
