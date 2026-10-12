@@ -1,0 +1,141 @@
+{
+  "schema_version": "0.1",
+  "decision_authority": "TIG maintainers",
+  "status": "proposed-for-review",
+  "scope": "High-risk source-semantic divergences; no glossary edits authorized",
+  "cases": [
+    {
+      "case_id": "DTG-SEM-001",
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/proof.md",
+      "source_label": "proof",
+      "tig_concepts": [
+        "urn:tig:concept:data-integrity-proof",
+        "urn:tig:concept:proof"
+      ],
+      "problem": "Trust Tasks means an optional W3C Data Integrity Proof attached to a task document; the TIG generic proof and Data Integrity Proof concepts have differing scope.",
+      "proposed_disposition": "hold_ambiguous",
+      "reason": "Source-owned meaning differs from, or cannot be uniquely resolved to, current TIG concept semantics.",
+      "approval": "pending",
+      "canonical_change_allowed": false,
+      "review_evidence_required": [
+        "definition comparison",
+        "scope assessment",
+        "stability and compatibility impact",
+        "source attribution"
+      ],
+      "followup_issue": 9
+    },
+    {
+      "case_id": "DTG-SEM-002",
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/trust_task.md",
+      "source_label": "Trust Task",
+      "tig_concepts": [
+        "urn:tig:concept:trust-task"
+      ],
+      "problem": "Trust Tasks describes bilateral verifiable work and linked task documents; TIG's inherited term describes a Layer-3 trust-task-protocol activity.",
+      "proposed_disposition": "do_not_assert_exact_match",
+      "reason": "Source-owned meaning differs from, or cannot be uniquely resolved to, current TIG concept semantics.",
+      "approval": "pending",
+      "canonical_change_allowed": false,
+      "review_evidence_required": [
+        "definition comparison",
+        "scope assessment",
+        "stability and compatibility impact",
+        "source attribution"
+      ],
+      "followup_issue": 9
+    },
+    {
+      "case_id": "DTG-SEM-003",
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/delegate.md",
+      "source_label": "delegate",
+      "tig_concepts": [
+        "urn:tig:concept:delegation"
+      ],
+      "problem": "VTI defines an acting subject, whereas TIG delegation defines the act of authorizing another party; not interchangeable nouns.",
+      "proposed_disposition": "do_not_assert_exact_match",
+      "reason": "Source-owned meaning differs from, or cannot be uniquely resolved to, current TIG concept semantics.",
+      "approval": "pending",
+      "canonical_change_allowed": false,
+      "review_evidence_required": [
+        "definition comparison",
+        "scope assessment",
+        "stability and compatibility impact",
+        "source attribution"
+      ],
+      "followup_issue": 9
+    },
+    {
+      "case_id": "DTG-SEM-004",
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/subject.md",
+      "source_label": "subject",
+      "tig_concepts": [
+        "urn:tig:concept:subject"
+      ],
+      "problem": "VTI means the identifier named by an access-control entry; TIG predominantly means an entity described by credential claims.",
+      "proposed_disposition": "do_not_assert_exact_match",
+      "reason": "Source-owned meaning differs from, or cannot be uniquely resolved to, current TIG concept semantics.",
+      "approval": "pending",
+      "canonical_change_allowed": false,
+      "review_evidence_required": [
+        "definition comparison",
+        "scope assessment",
+        "stability and compatibility impact",
+        "source attribution"
+      ],
+      "followup_issue": 9
+    },
+    {
+      "case_id": "DTG-SEM-005",
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/trust_context.md",
+      "source_label": "trust context",
+      "tig_concepts": [
+        "urn:tig:concept:trust-context"
+      ],
+      "problem": "VTI means a hierarchical isolation compartment for keys, state and delegated authority; TIG means the context of a trust decision.",
+      "proposed_disposition": "do_not_assert_exact_match",
+      "reason": "Source-owned meaning differs from, or cannot be uniquely resolved to, current TIG concept semantics.",
+      "approval": "pending",
+      "canonical_change_allowed": false,
+      "review_evidence_required": [
+        "definition comparison",
+        "scope assessment",
+        "stability and compatibility impact",
+        "source attribution"
+      ],
+      "followup_issue": 9
+    },
+    {
+      "case_id": "DTG-SEM-006",
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/trust_task.md",
+      "source_label": "trust task",
+      "tig_concepts": [
+        "urn:tig:concept:trust-task"
+      ],
+      "problem": "VTI describes a versioned node-exposed operation; TIG's inherited description is a generic trust-task-protocol activity.",
+      "proposed_disposition": "do_not_assert_exact_match",
+      "reason": "Source-owned meaning differs from, or cannot be uniquely resolved to, current TIG concept semantics.",
+      "approval": "pending",
+      "canonical_change_allowed": false,
+      "review_evidence_required": [
+        "definition comparison",
+        "scope assessment",
+        "stability and compatibility impact",
+        "source attribution"
+      ],
+      "followup_issue": 9
+    }
+  ]
+}
