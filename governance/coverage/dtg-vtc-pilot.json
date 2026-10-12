@@ -4,14 +4,57 @@
   "observed_at": "2026-10-12",
   "counting_policy": "Candidate labels are not a comprehensive source corpus; unknown never counts as covered, partial, missing, or not-applicable for denominator reporting.",
   "sources": [
-    {"id": "vti-spec-entry", "url": "https://github.com/trustoverip/dtgwg-vti-spec/blob/main/README.md", "blob_sha": "898d3495a0e24701f3843e36268c90c7226daab5", "authority": "spec-entry-point"},
-    {"id": "trust-tasks-spec", "url": "https://github.com/trustoverip/dtgwg-trust-tasks-tf/blob/main/SPEC.md", "blob_sha": "6664fe5506d9d79515dac0c624d9a4bf5184c80e", "authority": "generated-working-draft"},
-    {"id": "dtg-architecture", "url": "https://github.com/trustoverip/dtgwg-general/blob/main/architecture/dtg-hybrid-interaction-architecture-baseline.md", "blob_sha": "6a4fb9aefcc46f3769edbbf76a8e2395926fbc42", "authority": "informative-draft"}
+    {
+      "id": "vti-spec-entry",
+      "url": "https://github.com/trustoverip/dtgwg-vti-spec/blob/main/README.md",
+      "blob_sha": "898d3495a0e24701f3843e36268c90c7226daab5",
+      "authority": "spec-entry-point"
+    },
+    {
+      "id": "trust-tasks-spec",
+      "url": "https://github.com/trustoverip/dtgwg-trust-tasks-tf/blob/main/SPEC.md",
+      "blob_sha": "6664fe5506d9d79515dac0c624d9a4bf5184c80e",
+      "authority": "generated-working-draft"
+    },
+    {
+      "id": "dtg-architecture",
+      "url": "https://github.com/trustoverip/dtgwg-general/blob/main/architecture/dtg-hybrid-interaction-architecture-baseline.md",
+      "blob_sha": "6a4fb9aefcc46f3769edbbf76a8e2395926fbc42",
+      "authority": "informative-draft"
+    }
   ],
   "candidates": [
-    {"label": "Trust Task", "source_id": "trust-tasks-spec", "state": "candidate", "concept_id": "urn:tig:concept:trust-task", "disposition": "review_required", "rationale": "Existing concept discovered; semantic comparison with normative source still required."},
-    {"label": "trust registry", "source_id": "dtg-architecture", "state": "candidate", "concept_id": "urn:tig:concept:trust-registry", "disposition": "review_required", "rationale": "Existing concept discovered; cross-domain meaning requires review."},
-    {"label": "Verifiable Trust Agent", "source_id": "vti-spec-entry", "state": "candidate", "concept_id": null, "disposition": "unresolved", "rationale": "Expected filename did not resolve; this does not demonstrate concept absence."},
-    {"label": "Verifiable Trust Community", "source_id": "vti-spec-entry", "state": "candidate", "concept_id": null, "disposition": "unresolved", "rationale": "Expected filename did not resolve; alternate designations and concepts still need searching."}
+    {
+      "label": "Trust Task",
+      "source_id": "trust-tasks-spec",
+      "state": "candidate",
+      "concept_id": "urn:tig:concept:trust-task",
+      "disposition": "review_required",
+      "rationale": "TIG defines the inherited ToIP Layer-3 task/protocol meaning, while DTGWG Trust Tasks describes a self-contained, transport-agnostic JSON outcome document; material semantic mismatch requiring adjudication, not an exact mapping."
+    },
+    {
+      "label": "trust registry",
+      "source_id": "dtg-architecture",
+      "state": "candidate",
+      "concept_id": "urn:tig:concept:trust-registry",
+      "disposition": "review_required",
+      "rationale": "Existing concept discovered; cross-domain meaning requires review."
+    },
+    {
+      "label": "Verifiable Trust Agent",
+      "source_id": "vti-spec-entry",
+      "state": "candidate",
+      "concept_id": null,
+      "disposition": "unresolved",
+      "rationale": "Expected filename did not resolve; this does not demonstrate concept absence."
+    },
+    {
+      "label": "Verifiable Trust Community",
+      "source_id": "vti-spec-entry",
+      "state": "candidate",
+      "concept_id": null,
+      "disposition": "unresolved",
+      "rationale": "Expected filename did not resolve; alternate designations and concepts still need searching."
+    }
   ]
 }
