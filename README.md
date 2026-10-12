@@ -101,6 +101,10 @@ bundle exec jekyll serve
 
 CI performs the same semantic and site-IA checks and rejects tracked generated-artifact drift.
 
+## DTG/VTC scoped terminology assurance baseline
+
+The [October 2026 bounded assessment](governance/dtg-vtc-bounded-assurance-verdict-2026-10-12.md) examines 106 explicitly defined terms from three pinned DTG specification terminology directories. It provides verified source provenance, a reproducible lexical crosswalk, review findings and a defensible **INDETERMINATE** semantic-coverage disposition. It does **not** certify DTG/VTC completeness, claim that unmatched terms are missing, or confer normative authority on TIG. Further work is contingent on specific semantic decisions or a named adopter requirement.
+
 ## Current quality posture
 
 The governance quality report covers all **617** canonical concepts and reports `100.0 / 100` with `0` findings for the current release. This is a repository quality signal, not a certification claim.
