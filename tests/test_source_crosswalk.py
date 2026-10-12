@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from validate_source_crosswalk import validate
 
 PILOT = json.loads((Path(__file__).resolve().parents[1] / "governance/coverage/dtg-vtc-pilot.json").read_text())
-IDS = {"urn:tig:concept:trust-task", "urn:tig:concept:trust-registry"}
+IDS = {"urn:tig:concept:trust-task", "urn:tig:concept:trust-registry", "urn:tig:concept:delegation-credential"}
 
 
 class SourceCrosswalkTests(unittest.TestCase):
@@ -20,6 +20,11 @@ class SourceCrosswalkTests(unittest.TestCase):
             "AuthorityCredential",
         })
         self.assertTrue(all(row["disposition"] == "unresolved" and row["concept_id"] is None for row in rows))
+
+    def test_vdc_mapping_remains_unadjudicated(self):
+        row = next(x for x in PILOT["candidates"] if x["label"] == "DelegationCredential")
+        self.assertEqual(row["concept_id"], "urn:tig:concept:delegation-credential")
+        self.assertEqual(row["disposition"], "review_required")
 
     def test_valid_candidate_corpus(self):
         self.assertEqual(validate(PILOT, IDS), [])
