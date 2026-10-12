@@ -6,6 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from validate_source_crosswalk import validate
+from report_source_crosswalk_discovery import discover
 
 PILOT = json.loads((Path(__file__).resolve().parents[1] / "governance/coverage/dtg-vtc-pilot.json").read_text())
 IDS = {"urn:tig:concept:trust-task", "urn:tig:concept:trust-registry", "urn:tig:concept:delegation-credential"}
@@ -27,6 +28,21 @@ class SourceCrosswalkTests(unittest.TestCase):
         row = next(x for x in PILOT["candidates"] if x["label"] == "DelegationCredential")
         self.assertEqual(row["concept_id"], "urn:tig:concept:delegation-credential")
         self.assertEqual(row["disposition"], "review_required")
+
+    def test_designation_discovery_is_not_semantic_validation(self):
+        from tempfile import TemporaryDirectory
+        import yaml
+        with TemporaryDirectory() as temp:
+            terms = Path(temp)
+            (terms / "vdc.yaml").write_text(yaml.safe_dump({
+                "concept_id": "urn:tig:concept:delegation-credential",
+                "term": "delegation-credential",
+                "designations": [{"label": "Delegation Credential"}]
+            }))
+            rows = discover(PILOT, terms)
+        vdc = next(row for row in rows if row["label"] == "DelegationCredential")
+        self.assertEqual(vdc["lexical_matches"], ["urn:tig:concept:delegation-credential"])
+        self.assertEqual(vdc["semantic_equivalence"], "not_established")
 
     def test_valid_candidate_corpus(self):
         self.assertEqual(validate(PILOT, IDS), [])
