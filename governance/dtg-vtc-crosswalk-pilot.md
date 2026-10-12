@@ -46,3 +46,9 @@ The existing TIG [trust-task concept](https://github.com/sankarshanmukhopadhyay/
 These descriptions have **different objects and boundaries**: an interaction/task in a trust-protocol layer versus a portable task description/document. Neither definition should silently overwrite the other. The pilot inventory therefore retains `review_required`; it is **not** an exact semantic match.
 
 **Adjudication required under #9:** establish whether this is a concept specialization, an overloaded designation requiring two separately identified TIG concepts, or an intended successor meaning. Verify against the normative Trust Tasks source and the historical ToIP glossary before choosing. Preserve the existing `urn:tig:concept:trust-task` identity and compatibility until that decision is evidenced; document source versions and licensing in any remediation under #10.
+
+## Canonical Trust Tasks source pin
+
+The pilot now references the [canonical Trust Tasks specification header](https://github.com/trustoverip/dtgwg-trust-tasks-spec/blob/main/spec/header.md), rather than the registry's generated `SPEC.md`. That source declares **Working Draft 0.7.0** (2026-09-24). The registry-generated `SPEC.md` identifies canonical repository commit `52ba2efbf05ab1f3b9af9929dc9a8c6350a88826`; the crosswalk records this source lineage separately from the directly observed header file blob SHA. **A commit SHA in the manifest has not yet been verified against the entire referenced repository tree**; treat it as an upstream-reported pin pending retrieval at that exact revision.
+
+The validator now checks the syntax of optional `canonical_commit` values and rejects malformed values, but it does **not** cryptographically establish that the remote revision contains the recorded blob. Remote evidence replay remains a later conformance task.
