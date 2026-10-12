@@ -1,0 +1,452 @@
+{
+  "schema_version": "1.0",
+  "observed_date": "2026-10-12",
+  "scope": "complete directory entries from authenticated Git Trees at listed commits; excludes external glossaries and out-of-directory definitions",
+  "repositories": [
+    {
+      "repository": "trustoverip/dtgwg-cred-spec",
+      "commit_sha": "4088056a15f6e74847eb422e1c2bae33684272ea",
+      "tree_truncated": false,
+      "term_files": [
+        {
+          "path": "spec/terms-definitions/cloud_vta.md",
+          "blob_sha": "765dd1aaf3c9615d823c4b6ce0da8cf9c74ad66c"
+        },
+        {
+          "path": "spec/terms-definitions/community_trust_anchor.md",
+          "blob_sha": "b557d96b42afc391eea9fe502ff7e76d1151d4be"
+        },
+        {
+          "path": "spec/terms-definitions/community_vta_network.md",
+          "blob_sha": "cd2b4f2704efe84a01446f19035678e83b7180f8"
+        },
+        {
+          "path": "spec/terms-definitions/community_vta.md",
+          "blob_sha": "ffe7efccd8c522b2cefa1d5655f389a5aa8f12c9"
+        },
+        {
+          "path": "spec/terms-definitions/correlation_scope.md",
+          "blob_sha": "17cb673f7f0426e034c958f055e35187e54abffa"
+        },
+        {
+          "path": "spec/terms-definitions/decentralized_trust_graph_working_group.md",
+          "blob_sha": "bbf93b7085d32ad88e844ba860a4727d9dd315fa"
+        },
+        {
+          "path": "spec/terms-definitions/decentralized_trust_graph.md",
+          "blob_sha": "156bb8d819e464fc50e58f602e6c11cb6462e34d"
+        },
+        {
+          "path": "spec/terms-definitions/dtg_credential.md",
+          "blob_sha": "3e29ebc04ce8564dd09b89f002c151725f1b4099"
+        },
+        {
+          "path": "spec/terms-definitions/dtg_credentials_specification.md",
+          "blob_sha": "7e5747c3360b87b532e96c3c7a87df227b1c178b"
+        },
+        {
+          "path": "spec/terms-definitions/dtg_edge_credential.md",
+          "blob_sha": "7a83aaaf1f955e6f2e1847bb91808860b1c7bf73"
+        },
+        {
+          "path": "spec/terms-definitions/dtg_edge.md",
+          "blob_sha": "68721acf0b8b0757a5224888049c8645805e9b60"
+        },
+        {
+          "path": "spec/terms-definitions/dtg_invitation_credential.md",
+          "blob_sha": "f59a11b410ec0121c2311870229b854e7532126e"
+        },
+        {
+          "path": "spec/terms-definitions/dtg_node.md",
+          "blob_sha": "4ac884858b018bad9df365124c68ad15d50bf317"
+        },
+        {
+          "path": "spec/terms-definitions/dtg_verifiable_identifier.md",
+          "blob_sha": "04021d86b772b2d3d851d11a1e16f0cc7e03a390"
+        },
+        {
+          "path": "spec/terms-definitions/identity_verification_credential.md",
+          "blob_sha": "7162bd898d418ef00693659d3afa5230b73dec88"
+        },
+        {
+          "path": "spec/terms-definitions/identity_verification_provider.md",
+          "blob_sha": "834a33177c23b3fa99a7b17a9882f1ba82663cfd"
+        },
+        {
+          "path": "spec/terms-definitions/initiator.md",
+          "blob_sha": "35a5c33df81a62e02cee7bd5b0c5c8e87529e944"
+        },
+        {
+          "path": "spec/terms-definitions/local_vta.md",
+          "blob_sha": "d5f27cd6042ec3e537af9a55114e73e274859a2b"
+        },
+        {
+          "path": "spec/terms-definitions/persona.md",
+          "blob_sha": "94eb62f9b9593614fa7e606f90692903e87f7a95"
+        },
+        {
+          "path": "spec/terms-definitions/personal_network_manager.md",
+          "blob_sha": "74b74976537d3e8bf6dfd2c877a4799e520f2480"
+        },
+        {
+          "path": "spec/terms-definitions/personal_network_vault.md",
+          "blob_sha": "459c26c6fbc4eec872b941a4086fb5219585fd50"
+        },
+        {
+          "path": "spec/terms-definitions/personal_trust_network.md",
+          "blob_sha": "fff1295061650e7882803eb5bf34e702c4e431b8"
+        },
+        {
+          "path": "spec/terms-definitions/personal_vta_network.md",
+          "blob_sha": "24123360407ad952fcc124f76e3c694554d22a39"
+        },
+        {
+          "path": "spec/terms-definitions/personal_vta.md",
+          "blob_sha": "ab6b59f6436e15bf2202b33152dfda936edfd05d"
+        },
+        {
+          "path": "spec/terms-definitions/personhood_credential.md",
+          "blob_sha": "c564ca58cde2fa38233ea675f998dab505e70bd9"
+        },
+        {
+          "path": "spec/terms-definitions/policy_enforcement_point.md",
+          "blob_sha": "ed577e50c0873e302fe5981098975ffba00687cc"
+        },
+        {
+          "path": "spec/terms-definitions/relationship_card.md",
+          "blob_sha": "feef8dc620952996364e41f68db5d265f660c403"
+        },
+        {
+          "path": "spec/terms-definitions/relationship_invitation.md",
+          "blob_sha": "991f462287aaeee1048b25e7e50f54bc3702c98f"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_authority_credential.md",
+          "blob_sha": "2e85e75083df07bc2dbffc113db95e6d41c06f91"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_credential.md",
+          "blob_sha": "dcdd34ac13eb40877f974c26062679c4b158eaff"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_data_structure.md",
+          "blob_sha": "fd2784456aa306b18404d40ed9d928d35d9d3aa1"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_delegation_credential.md",
+          "blob_sha": "b2000c2a3b53322827e511decda258f6b77f7fc3"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_endorsement_credential.md",
+          "blob_sha": "c967d6d3355f68e7a63354f6ecc2a58fb21883bc"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_membership_credential.md",
+          "blob_sha": "b056ddc6c6530128c12b94e13780d3e91b1196e1"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_persona_credential.md",
+          "blob_sha": "78b3fe071a105fd722c240e21c04e117d5088e08"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_relationship_credential.md",
+          "blob_sha": "056450ea206dc892e43cdfff48f790d05c5e1406"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_statement_credential.md",
+          "blob_sha": "670cb01531484bb91a68b5063e03c33c4c2a8ccf"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_trust_agent.md",
+          "blob_sha": "a7041112e11e1211ddd7b09370411fbfd88cdcee"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_trust_community.md",
+          "blob_sha": "ddd3105cea2ff817889060bd931d78e47a00a99b"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_trust_network.md",
+          "blob_sha": "2bf579331dcb637e703385ba4305d6dfc05ab4e0"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_trust_service_provider.md",
+          "blob_sha": "addf7f96f9dc6dff687314df8ea519574939e6fd"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_witness_credential.md",
+          "blob_sha": "9c1f2b0fa7af92295cd068315f9331318ed96e53"
+        },
+        {
+          "path": "spec/terms-definitions/vta_network_endpoint.md",
+          "blob_sha": "38af67767ff0245928e8a137d6a6c75de4fdfea2"
+        },
+        {
+          "path": "spec/terms-definitions/vta_network.md",
+          "blob_sha": "5a24db53dd014d590bbbf6d9425af8da3f9fe4b7"
+        },
+        {
+          "path": "spec/terms-definitions/vtc_invitation_credential.md",
+          "blob_sha": "95aa6ae081ce0603d8d9785002e0fb957e08407b"
+        },
+        {
+          "path": "spec/terms-definitions/vtc_member.md",
+          "blob_sha": "5666ebcaf94004524ed62347f26fe42d30171b53"
+        },
+        {
+          "path": "spec/terms-definitions/vtc_trust_anchor.md",
+          "blob_sha": "520fe983328f1b1a79b1717a06ceccb2415dde51"
+        },
+        {
+          "path": "spec/terms-definitions/vtn_invitation_credential.md",
+          "blob_sha": "fe0496db61efb87faed0e6578905ef4ab46eaabc"
+        },
+        {
+          "path": "spec/terms-definitions/vtn_member.md",
+          "blob_sha": "c5038a3623d2e2708ccf25380f400b740c9c1eba"
+        },
+        {
+          "path": "spec/terms-definitions/vtn_trust_anchor.md",
+          "blob_sha": "848ecce467348ab9c39298808842968e0f2d60c8"
+        }
+      ]
+    },
+    {
+      "repository": "trustoverip/dtgwg-vti-spec",
+      "commit_sha": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "tree_truncated": false,
+      "term_files": [
+        {
+          "path": "spec/terms-definitions/access_control_entry.md",
+          "blob_sha": "5064d70c398f39fe30759f438a5e38d71e8f1770"
+        },
+        {
+          "path": "spec/terms-definitions/act_scope.md",
+          "blob_sha": "7a6eadc72552a14ddf10641721e223483fcf5966"
+        },
+        {
+          "path": "spec/terms-definitions/approve_scope.md",
+          "blob_sha": "ba612bccea0e576da13f53510d3c0b22df367f90"
+        },
+        {
+          "path": "spec/terms-definitions/approver.md",
+          "blob_sha": "574a6669e22b841f7864604429b9d11f2b60a1ef"
+        },
+        {
+          "path": "spec/terms-definitions/assurance_level.md",
+          "blob_sha": "f236caa19c655ece2a26392f6df20a46403c5044"
+        },
+        {
+          "path": "spec/terms-definitions/attestation_artefact.md",
+          "blob_sha": "d783c8d8d3fcae1578ece7fd61fbe9b577858310"
+        },
+        {
+          "path": "spec/terms-definitions/bootstrap_identity.md",
+          "blob_sha": "12c6cafd84842f217cc00a9d587e570d61f33c86"
+        },
+        {
+          "path": "spec/terms-definitions/capability.md",
+          "blob_sha": "7e10c5e42c90bd2da8893c0b54622ba294198b80"
+        },
+        {
+          "path": "spec/terms-definitions/client.md",
+          "blob_sha": "2fcf016a5933b277d51a0abad0e58aa88900fb85"
+        },
+        {
+          "path": "spec/terms-definitions/composition_owned_requirement.md",
+          "blob_sha": "d432a8ef40e4edae63d96801251369d8decc56b3"
+        },
+        {
+          "path": "spec/terms-definitions/composition.md",
+          "blob_sha": "ad1e7a54cd450746488600288cf3bbd0b5b32fca"
+        },
+        {
+          "path": "spec/terms-definitions/consent.md",
+          "blob_sha": "5ad2ae9b0ac10f82d7aad2f5b26b213f023cad5a"
+        },
+        {
+          "path": "spec/terms-definitions/context_administrator.md",
+          "blob_sha": "f97a5acb98e1270be03d486ae6532003bbe9da94"
+        },
+        {
+          "path": "spec/terms-definitions/context_path.md",
+          "blob_sha": "60e5b761bc4cfd81509a2be3ef6a5d0aee03a38c"
+        },
+        {
+          "path": "spec/terms-definitions/delegate.md",
+          "blob_sha": "68592da50acc359994ec37e5d89b732eada38c8f"
+        },
+        {
+          "path": "spec/terms-definitions/host_service.md",
+          "blob_sha": "0d3f69308455064bb9eb5dca5be919b843f36c80"
+        },
+        {
+          "path": "spec/terms-definitions/indeterminate.md",
+          "blob_sha": "d46f870de394e4ccaa761a462fe6196f036c9540"
+        },
+        {
+          "path": "spec/terms-definitions/key_role.md",
+          "blob_sha": "95b6f150ebaef01714b169c033b81b0d4a2b523a"
+        },
+        {
+          "path": "spec/terms-definitions/listing.md",
+          "blob_sha": "e5aee35ac0834d9b1549a57ca7d16424e06c20ab"
+        },
+        {
+          "path": "spec/terms-definitions/mediator.md",
+          "blob_sha": "89f95f9a4ed279c5afe796842ee6446e3cffae38"
+        },
+        {
+          "path": "spec/terms-definitions/member.md",
+          "blob_sha": "199a96429edf4b26c14f95ab29026587a423e907"
+        },
+        {
+          "path": "spec/terms-definitions/operator.md",
+          "blob_sha": "d0b3eb8d81952ae82430ce5ec811dbedbd2c06eb"
+        },
+        {
+          "path": "spec/terms-definitions/principal.md",
+          "blob_sha": "98cc419e3f2375b020ecce9080a3a7c46ded0386"
+        },
+        {
+          "path": "spec/terms-definitions/recognition.md",
+          "blob_sha": "b17edafbcbafa43e9eea1b7d2cbe7983af73552c"
+        },
+        {
+          "path": "spec/terms-definitions/role.md",
+          "blob_sha": "22c22cb2b10301c5ce3837b1028bbd9f3729a800"
+        },
+        {
+          "path": "spec/terms-definitions/step_up.md",
+          "blob_sha": "5dfff4af4f28a634503a61f70a78061289f1c795"
+        },
+        {
+          "path": "spec/terms-definitions/subject.md",
+          "blob_sha": "b1fc2b84e88647fc38e874ba3582cc6c0a9b08ee"
+        },
+        {
+          "path": "spec/terms-definitions/super_administrator.md",
+          "blob_sha": "5fe1588c455c04b4dce342cca9cdc192f58d50fd"
+        },
+        {
+          "path": "spec/terms-definitions/trust_context.md",
+          "blob_sha": "3025232b4e02ea0fbf85ebde3b11420ebb1d5c1d"
+        },
+        {
+          "path": "spec/terms-definitions/trust_registry.md",
+          "blob_sha": "5863b00a5446588b3e63ed7a46dc4038ec8daf7f"
+        },
+        {
+          "path": "spec/terms-definitions/trust_task.md",
+          "blob_sha": "0dfcf078d6d061f5503bfe7fa9deb6a0d4b18ae6"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_credential.md",
+          "blob_sha": "dcdd34ac13eb40877f974c26062679c4b158eaff"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_trust_agent.md",
+          "blob_sha": "967dab82eb362671318bf2e4cd9efc72e77c0e5c"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_trust_community.md",
+          "blob_sha": "7265a8bebf3aecd80c4f3803d11d9ce00e5ec310"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_trust_infrastructure.md",
+          "blob_sha": "5d9288c63992c8b97303ad27d2f1bfd25c694ead"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_trust_network.md",
+          "blob_sha": "239e07555e826e4d0fc9b81a022f3e18dc7f57c6"
+        }
+      ]
+    },
+    {
+      "repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "commit_sha": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "tree_truncated": false,
+      "term_files": [
+        {
+          "path": "spec/terms-definitions/ceremony_definition.md",
+          "blob_sha": "edecb9f9016dce422be021a8900df8a7b5b1a818"
+        },
+        {
+          "path": "spec/terms-definitions/consequential_trust_task.md",
+          "blob_sha": "3a38e25b8c29209898eeed10e3626d93db89618e"
+        },
+        {
+          "path": "spec/terms-definitions/consumer.md",
+          "blob_sha": "a3e2cd5385a441153eaf3d9b24f611c3680d3193"
+        },
+        {
+          "path": "spec/terms-definitions/document_identifier.md",
+          "blob_sha": "034a092cc884609f5a674bd32c71d7c4626aa978"
+        },
+        {
+          "path": "spec/terms-definitions/enactment.md",
+          "blob_sha": "f68b351482daa627e0d0954c8619a9609304357e"
+        },
+        {
+          "path": "spec/terms-definitions/error_response.md",
+          "blob_sha": "439f507665579106de3b90fbd39fe730691749f6"
+        },
+        {
+          "path": "spec/terms-definitions/outcome_evidence.md",
+          "blob_sha": "feedee4ccc39ae63531078876da6426ad7c8d3d6"
+        },
+        {
+          "path": "spec/terms-definitions/parent_thread_identifier.md",
+          "blob_sha": "d646b54cf9605d9e5f2791788827dcc2ba39add0"
+        },
+        {
+          "path": "spec/terms-definitions/party.md",
+          "blob_sha": "170935599a2aa67e65c09d57aa6d803e8ba3b612"
+        },
+        {
+          "path": "spec/terms-definitions/payload.md",
+          "blob_sha": "684b12c5305a23dff2666184c14ea532194fbd6e"
+        },
+        {
+          "path": "spec/terms-definitions/producer.md",
+          "blob_sha": "89edf4722447a9ec53d6f988b9ff2a16700ecab6"
+        },
+        {
+          "path": "spec/terms-definitions/proof.md",
+          "blob_sha": "4dfc0c73b804a855d9630aac4a776109a9141a35"
+        },
+        {
+          "path": "spec/terms-definitions/thread_identifier.md",
+          "blob_sha": "500fe22ed451ee4763b89a5fc9f92172743baf43"
+        },
+        {
+          "path": "spec/terms-definitions/transport_binding.md",
+          "blob_sha": "a743b6b84e5f48f91bd031ca8cdd4d9a9fe9f159"
+        },
+        {
+          "path": "spec/terms-definitions/trust_ceremony.md",
+          "blob_sha": "9e85488cffacf91338f2b3860d4088d4624a86c9"
+        },
+        {
+          "path": "spec/terms-definitions/trust_task_document.md",
+          "blob_sha": "6993d43e02503cc2181955e2faf3bae377718ed3"
+        },
+        {
+          "path": "spec/terms-definitions/trust_task_specification.md",
+          "blob_sha": "efd5c7804987b9853ca3487dfee41bac4873ad8d"
+        },
+        {
+          "path": "spec/terms-definitions/trust_task.md",
+          "blob_sha": "425bd266b5372e812bbad17178ddbfba69d0fffb"
+        },
+        {
+          "path": "spec/terms-definitions/type_uri.md",
+          "blob_sha": "9c0d1ce02f10af76c7e6f209ddc2871a17a2fef4"
+        },
+        {
+          "path": "spec/terms-definitions/verifiable_identifier.md",
+          "blob_sha": "81c8c1e8ddcfe857fc1ddb01aebd3087cef3eb86"
+        }
+      ]
+    }
+  ]
+}
