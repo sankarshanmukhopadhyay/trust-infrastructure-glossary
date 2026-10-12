@@ -25,7 +25,8 @@ def extract(source_root, repository, commit):
         labels = PATTERN.findall(data.decode("utf-8"))
         for position, label in enumerate(labels, start=1):
             results.append({
-                "label": label.strip(),
+                "label": label.split(",", 1)[0].strip(),
+                "aliases": [v.strip() for v in label.split(",")[1:] if v.strip()],
                 "source_repo": repository,
                 "source_commit": commit,
                 "source_path": str(path.relative_to(source_root)),
