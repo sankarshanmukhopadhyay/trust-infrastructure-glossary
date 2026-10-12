@@ -38,12 +38,20 @@ jobs:
           python tools/validate_source_crosswalk.py
           python -m unittest discover -s tests -p 'test_source_crosswalk.py' -v
           python tools/report_source_crosswalk_discovery.py --output /tmp/tig-crosswalk-discovery.json
+          python tools/build_source_review_queue.py --output /tmp/tig-review-queue.json
+          python -m unittest discover -s tests -p 'test_source_review_queue.py' -v
 
       - name: Upload lexical discovery evidence
         uses: actions/upload-artifact@v4
         with:
           name: tig-crosswalk-lexical-discovery
           path: /tmp/tig-crosswalk-discovery.json
+
+      - name: Upload semantic review queue evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: tig-source-semantic-review-queue
+          path: /tmp/tig-review-queue.json
 
       - name: Upload semantic model evidence
         uses: actions/upload-artifact@v4
