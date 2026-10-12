@@ -47,3 +47,17 @@ The architecture baseline expressly distinguishes DTG presence from graph node v
 ## Evidence and next increment
 
 Do **not** publish a numerical completeness percentage until the approved corpus and denominator exist. Continue through [#8](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary/issues/8) only using source-versioned entries, preserving `unknown` and `not_applicable` states. Run the existing glossary/site validation when integrating this document into the site.
+
+## Additional directly inspected sources — second increment
+
+| Source | Role and declared state | File blob SHA observed | Disposition |
+| --- | --- | --- | --- |
+| [DTG Credentials Task Force README](https://github.com/trustoverip/dtgwg-cred-tf/blob/main/README.md) | Confirms normative Credentials Core specification now resides in `dtgwg-cred-spec`; links the draft DTG Glossary as a separate Google document | `c0d1ecac59404d330d6328feff3490aa898c24b8` | Authority-routing evidence; actual normative spec text not yet pinned |
+| [VTI specification README](https://github.com/trustoverip/dtgwg-vti-spec/blob/main/README.md) | Describes specification for trust contexts, authority, lifecycle, node/host composition, VTA, and VTC | `898d3495a0e24701f3843e36268c90c7226daab5` | Spec entry point; chapter-level source/version still needed |
+| [VTI implementation README](https://github.com/OpenVTC/verifiable-trust-infrastructure/blob/main/README.md) | Explicitly distinguishes normative VTI specification from its Rust implementation and documents divergence precedence | `ac945db8fbc6bef6be7da58cb6c3c916ca4aa397` | Implementation evidence; prioritize spec where they differ |
+| [Trust Tasks TF README](https://github.com/trustoverip/dtgwg-trust-tasks-tf/blob/main/README.md) | Registry entry point and framework spec publication model | `a80b0a4f70c6990b53cb8201dec8101b45fc7736` | Discovery pointer |
+| [Generated Trust Tasks framework SPEC](https://github.com/trustoverip/dtgwg-trust-tasks-tf/blob/main/SPEC.md) | Working Draft 0.7.0, last updated 2026-09-24; generated from canonical `dtgwg-trust-tasks-spec` commit `52ba2efbf05ab1f3b9af9929dc9a8c6350a88826` | `6664fe5506d9d79515dac0c624d9a4bf5184c80e` | Use canonical source commit for semantic extraction; generated document is not editorial authority |
+
+**Precedence finding:** DTG Credentials and VTI each distinguish canonical specifications from supporting task-force/implementation repositories. The Trust Tasks registry SPEC explicitly points to a canonical source commit. The future crosswalk must key mappings to these actual authoritative texts, not to descriptive README phrases.
+
+**Remaining G0 impediments:** obtain a readable and properly attributable DTG Glossary source; inspect the substantive Credentials Core document and VTI chapters; complete source-level copyright/license determination. No numerical coverage can yet be computed.
