@@ -84,3 +84,23 @@ The [Credentials Task Force README](https://github.com/trustoverip/dtgwg-cred-tf
 - Pin source code at a repository commit; retain per-file blob SHA as secondary integrity evidence.
 - Distinguish referenced external definitions from definitions owned by the current spec.
 - Preserve unresolved discrepancies as `review_required`; do not admit asserted exact mappings or publish denominators based on inconsistent sources.
+
+## Resolved credential-type count (source comparison)
+
+The discrepancy between the [Credentials Task Force README](https://github.com/trustoverip/dtgwg-cred-tf/blob/main/README.md) (**six** core credential types) and the [canonical specification manifest](https://github.com/trustoverip/dtgwg-cred-spec/blob/main/specs.json) (**seven**) was checked against the actual [specification body](https://github.com/trustoverip/dtgwg-cred-spec/blob/main/spec/body.md) (observed blob SHA `d45e69bb2f4e4ba9ec84f86c6cf72351a0dc36b1`).
+
+The informative **DTG Credential Taxonomy** section explicitly enumerates **seven** direct concrete subtypes of `DTGCredential`:
+
+| Type | Abbreviation |
+| --- | --- |
+| MembershipCredential | VMC |
+| RelationshipCredential | VRC |
+| DelegationCredential | VDC |
+| InvitationCredential | VIC |
+| PersonaCredential | VPC |
+| StatementCredential | VSC |
+| AuthorityCredential | VAC |
+
+`dtg:endorses` (VEC) and `dtg:witnessed` (VWC) are **predicate profiles of VSC**, not further credential types. The older RCard is a verifiable data structure, not a credential subtype.
+
+**Disposition:** descriptive-documentation drift in the task-force README relative to the inspected canonical body. The developer group has been alerted; TIG must not presume that an external README correction has been made. The source's informative taxonomy is not itself a new normative requirement. This finding removes the numerical uncertainty for the *inspected body revision*, but does **not** close G0 because the complete terminology corpus, source revision pins and licensing review remain outstanding.
