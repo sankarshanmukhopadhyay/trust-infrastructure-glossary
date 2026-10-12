@@ -23,6 +23,13 @@
       "url": "https://github.com/trustoverip/dtgwg-general/blob/main/architecture/dtg-hybrid-interaction-architecture-baseline.md",
       "blob_sha": "6a4fb9aefcc46f3769edbbf76a8e2395926fbc42",
       "authority": "informative-draft"
+    },
+    {
+      "id": "dtg-credential-taxonomy",
+      "url": "https://github.com/trustoverip/dtgwg-cred-spec/blob/main/spec/body.md",
+      "blob_sha": "d45e69bb2f4e4ba9ec84f86c6cf72351a0dc36b1",
+      "authority": "working-draft",
+      "source_section": "DTG Credential Taxonomy (informative)"
     }
   ],
   "candidates": [
@@ -57,6 +64,62 @@
       "concept_id": null,
       "disposition": "unresolved",
       "rationale": "Expected filename did not resolve; alternate designations and concepts still need searching."
+    },
+    {
+      "label": "MembershipCredential",
+      "source_id": "dtg-credential-taxonomy",
+      "state": "candidate",
+      "concept_id": null,
+      "disposition": "unresolved",
+      "rationale": "Concrete DTGCredential subtype VMC identified in informative taxonomy; TIG concept mapping and semantic equivalence not yet adjudicated."
+    },
+    {
+      "label": "RelationshipCredential",
+      "source_id": "dtg-credential-taxonomy",
+      "state": "candidate",
+      "concept_id": null,
+      "disposition": "unresolved",
+      "rationale": "Concrete DTGCredential subtype VRC identified in informative taxonomy; TIG concept mapping and semantic equivalence not yet adjudicated."
+    },
+    {
+      "label": "DelegationCredential",
+      "source_id": "dtg-credential-taxonomy",
+      "state": "candidate",
+      "concept_id": null,
+      "disposition": "unresolved",
+      "rationale": "Concrete DTGCredential subtype VDC identified in informative taxonomy; TIG concept mapping and semantic equivalence not yet adjudicated."
+    },
+    {
+      "label": "InvitationCredential",
+      "source_id": "dtg-credential-taxonomy",
+      "state": "candidate",
+      "concept_id": null,
+      "disposition": "unresolved",
+      "rationale": "Concrete DTGCredential subtype VIC identified in informative taxonomy; TIG concept mapping and semantic equivalence not yet adjudicated."
+    },
+    {
+      "label": "PersonaCredential",
+      "source_id": "dtg-credential-taxonomy",
+      "state": "candidate",
+      "concept_id": null,
+      "disposition": "unresolved",
+      "rationale": "Concrete DTGCredential subtype VPC identified in informative taxonomy; TIG concept mapping and semantic equivalence not yet adjudicated."
+    },
+    {
+      "label": "StatementCredential",
+      "source_id": "dtg-credential-taxonomy",
+      "state": "candidate",
+      "concept_id": null,
+      "disposition": "unresolved",
+      "rationale": "Concrete DTGCredential subtype VSC identified in informative taxonomy; TIG concept mapping and semantic equivalence not yet adjudicated."
+    },
+    {
+      "label": "AuthorityCredential",
+      "source_id": "dtg-credential-taxonomy",
+      "state": "candidate",
+      "concept_id": null,
+      "disposition": "unresolved",
+      "rationale": "Concrete DTGCredential subtype VAC identified in informative taxonomy; TIG concept mapping and semantic equivalence not yet adjudicated."
     }
   ]
 }
