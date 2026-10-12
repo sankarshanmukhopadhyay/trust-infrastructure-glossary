@@ -35,6 +35,11 @@ class SourceCrosswalkTests(unittest.TestCase):
         data["candidates"].append(copy.deepcopy(data["candidates"][0]))
         self.assertTrue(any("duplicate source/label" in error for error in validate(data, IDS)))
 
+    def test_invalid_canonical_revision_rejected(self):
+        data = copy.deepcopy(PILOT)
+        data["sources"][1]["canonical_commit"] = "bad-revision"
+        self.assertTrue(any("invalid canonical commit SHA" in error for error in validate(data, IDS)))
+
     def test_malformed_sha_rejected(self):
         data = copy.deepcopy(PILOT)
         data["sources"][0]["blob_sha"] = "not-a-sha"
