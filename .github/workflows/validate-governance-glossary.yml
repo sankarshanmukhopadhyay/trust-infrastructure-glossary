@@ -78,6 +78,36 @@ jobs:
             /tmp/tig-toip-main-tree.json
             /tmp/tig-toip-general-tree.json
 
+      - name: Checkout pinned ToIP Main Glossary
+        uses: actions/checkout@v4
+        with:
+          repository: trustoverip/ctwg-main-glossary
+          ref: 00608bb6ce7f7e6285f202b580548d61ee716621
+          path: _upstream/toip-main
+          persist-credentials: false
+
+      - name: Checkout pinned ToIP General IT Glossary
+        uses: actions/checkout@v4
+        with:
+          repository: trustoverip/ctwg-general-glossary
+          ref: 73604cf54c9f238b0d239daecc413a045f61c75e
+          path: _upstream/toip-general
+          persist-credentials: false
+
+      - name: Extract pinned external definitions and aliases
+        run: |
+          python -m unittest discover -s tests -p 'test_external_glossary_definition_extraction.py' -v
+          python tools/extract_external_glossary_definitions.py --repository trustoverip/ctwg-main-glossary --commit 00608bb6ce7f7e6285f202b580548d61ee716621 --source-root _upstream/toip-main --output /tmp/tig-toip-main-definitions.json
+          python tools/extract_external_glossary_definitions.py --repository trustoverip/ctwg-general-glossary --commit 73604cf54c9f238b0d239daecc413a045f61c75e --source-root _upstream/toip-general --output /tmp/tig-toip-general-definitions.json
+
+      - name: Upload external definition extraction evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: tig-external-glossary-pinned-definitions
+          path: |
+            /tmp/tig-toip-main-definitions.json
+            /tmp/tig-toip-general-definitions.json
+
       - name: Validate candidate external glossary pins
         run: python -m unittest discover -s tests -p 'test_external_glossary_candidate_pins.py' -v
 
