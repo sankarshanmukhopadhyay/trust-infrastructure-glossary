@@ -1,0 +1,423 @@
+{
+  "schema_version": "1.0",
+  "scope": "17 initially matched pinned DTG source definitions",
+  "semantic_coverage": null,
+  "approved_count": 0,
+  "review_required_count": 17,
+  "high_risk_count": 6,
+  "source_rows": [
+    {
+      "source_repository": "trustoverip/dtgwg-cred-spec",
+      "source_commit": "4088056a15f6e74847eb422e1c2bae33684272ea",
+      "source_path": "spec/terms-definitions/dtg_verifiable_identifier.md",
+      "source_label": "DTG verifiable identifier",
+      "tig_candidates": [
+        "urn:tig:concept:verifiable-identifier",
+        "urn:tig:concept:vid"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-cred-spec",
+      "source_commit": "4088056a15f6e74847eb422e1c2bae33684272ea",
+      "source_path": "spec/terms-definitions/verifiable_credential.md",
+      "source_label": "VC",
+      "tig_candidates": [
+        "urn:tig:concept:vc",
+        "urn:tig:concept:verifiable-credential"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/party.md",
+      "source_label": "party",
+      "tig_candidates": [
+        "urn:tig:concept:party"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/proof.md",
+      "source_label": "proof",
+      "tig_candidates": [
+        "urn:tig:concept:data-integrity-proof",
+        "urn:tig:concept:proof"
+      ],
+      "preliminary_class": "ambiguous_mapping",
+      "case_id": "DTG-SEM-001",
+      "proposed_safe_handling": "hold_ambiguous",
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/trust_task.md",
+      "source_label": "Trust Task",
+      "tig_candidates": [
+        "urn:tig:concept:trust-task"
+      ],
+      "preliminary_class": "material_divergence",
+      "case_id": "DTG-SEM-002",
+      "proposed_safe_handling": "do_not_assert_exact_match",
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-trust-tasks-spec",
+      "source_commit": "bf667f3e8506b7fb2c3e96665b7060e2ebaad806",
+      "source_path": "spec/terms-definitions/verifiable_identifier.md",
+      "source_label": "VID",
+      "tig_candidates": [
+        "urn:tig:concept:verifiable-identifier",
+        "urn:tig:concept:vid"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/assurance_level.md",
+      "source_label": "assurance level",
+      "tig_candidates": [
+        "urn:tig:concept:assurance-level"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/capability.md",
+      "source_label": "capability",
+      "tig_candidates": [
+        "urn:tig:concept:capability"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/delegate.md",
+      "source_label": "delegate",
+      "tig_candidates": [
+        "urn:tig:concept:delegation"
+      ],
+      "preliminary_class": "material_divergence",
+      "case_id": "DTG-SEM-003",
+      "proposed_safe_handling": "do_not_assert_exact_match",
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/principal.md",
+      "source_label": "principal",
+      "tig_candidates": [
+        "urn:tig:concept:principal"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/recognition.md",
+      "source_label": "recognition",
+      "tig_candidates": [
+        "urn:tig:concept:recognition"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/role.md",
+      "source_label": "role",
+      "tig_candidates": [
+        "urn:tig:concept:role"
+      ],
+      "preliminary_class": "contextual_narrowing",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/subject.md",
+      "source_label": "subject",
+      "tig_candidates": [
+        "urn:tig:concept:subject"
+      ],
+      "preliminary_class": "material_divergence",
+      "case_id": "DTG-SEM-004",
+      "proposed_safe_handling": "do_not_assert_exact_match",
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/trust_context.md",
+      "source_label": "trust context",
+      "tig_candidates": [
+        "urn:tig:concept:trust-context"
+      ],
+      "preliminary_class": "material_divergence",
+      "case_id": "DTG-SEM-005",
+      "proposed_safe_handling": "do_not_assert_exact_match",
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/trust_registry.md",
+      "source_label": "trust registry",
+      "tig_candidates": [
+        "urn:tig:concept:trust-registry"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/trust_task.md",
+      "source_label": "trust task",
+      "tig_candidates": [
+        "urn:tig:concept:trust-task"
+      ],
+      "preliminary_class": "material_divergence",
+      "case_id": "DTG-SEM-006",
+      "proposed_safe_handling": "do_not_assert_exact_match",
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    },
+    {
+      "source_repository": "trustoverip/dtgwg-vti-spec",
+      "source_commit": "dc1ec07d42ec5c0054037795c06dbead608fbc5b",
+      "source_path": "spec/terms-definitions/verifiable_credential.md",
+      "source_label": "VC",
+      "tig_candidates": [
+        "urn:tig:concept:vc",
+        "urn:tig:concept:verifiable-credential"
+      ],
+      "preliminary_class": "candidate_scope_overlap",
+      "case_id": null,
+      "proposed_safe_handling": null,
+      "decision": {
+        "disposition": null,
+        "mapping_strength": null,
+        "rationale": null,
+        "source_definition_evidence": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "compatibility_assessment": null,
+        "source_license_review": null,
+        "approval_state": "pending",
+        "canonical_change_allowed": false
+      }
+    }
+  ]
+}
