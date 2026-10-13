@@ -19,7 +19,7 @@ Find a definition first, then examine its context, provenance and relationships.
 
 ## Reading concept pages
 
-Start with the definition and alternative labels. Use provenance to determine where the wording comes from, and the stable `concept_id` when citing it. Semantic relationships are reviewed descriptive connections, not proof that terms from different specifications are interchangeable.
+Start with the definition and alternative labels. Use provenance to determine where the wording comes from, and the stable `concept_id` when citing it. Semantic relationships are reviewed descriptive connections, do not prove that terms from different specifications are interchangeable.
 
 A first example is [Trust Task]({{ '/terms/trust-task/' | relative_url }}): its source-specific usage requires care when comparing it to similarly named external concepts.
 
