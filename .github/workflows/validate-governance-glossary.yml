@@ -119,6 +119,17 @@ jobs:
             /tmp/tig-toip-main-definitions.json
             /tmp/tig-toip-general-definitions.json
 
+      - name: Test standalone consumer conformance prototype
+        run: |
+          python -m unittest discover -s tests -p 'test_standalone_catalog_adopter.py' -v
+          python examples/consumers/standalone/catalog_adopter.py --catalog generated/json/trust-infrastructure-glossary.catalog.json --decisions governance/coverage/dtg-semantic-decision-proposals.json --output /tmp/tig-standalone-adopter-result.json
+
+      - name: Upload standalone consumer conformance evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: tig-standalone-adopter-conformance
+          path: /tmp/tig-standalone-adopter-result.json
+
       - name: Validate candidate external glossary pins
         run: python -m unittest discover -s tests -p 'test_external_glossary_candidate_pins.py' -v
 
