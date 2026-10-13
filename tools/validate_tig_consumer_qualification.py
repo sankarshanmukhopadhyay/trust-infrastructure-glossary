@@ -80,8 +80,8 @@ def _validate_unapproved_semantic_candidates() -> None:
 
 def _validate_high_risk_decisions_remain_pending() -> None:
     proposals = _load_json(ROOT / "governance/coverage/dtg-semantic-decision-proposals.json")
-    records = proposals.get("records", [])
-    _require(records, "semantic decision proposal register contains no records")
+    records = proposals.get("cases", [])
+    _require(records, "semantic decision proposal register contains no cases")
     for row in records:
         _require(row.get("approval") == "pending", f"high-risk proposal unexpectedly approved: {row.get('source_label')}")
         _require(row.get("canonical_change_allowed") is False, f"canonical mutation allowed before approval: {row.get('source_label')}")
