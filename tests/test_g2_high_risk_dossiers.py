@@ -22,7 +22,7 @@ class DossierTests(unittest.TestCase):
     def test_no_false_exact_mapping_or_completion(self):
         text = PACKET.read_text(encoding="utf-8")
         self.assertIn("NOT APPROVED", text)
-        self.assertIn("remaining **11**", text)
+        self.assertIn("other **11**", text)
         self.assertIn("**89**", text)
         self.assertIn("**749**", text)
 
