@@ -3,75 +3,40 @@ layout: home
 title: Trust Infrastructure Glossary
 nav_order: 1
 nav_exclude: true
-description: Governed semantic infrastructure for digital trust systems.
+description: Find, understand and reuse governed concepts for digital trust systems.
 ---
 
 # Trust Infrastructure Glossary
 
-**A governed semantic infrastructure for digital trust systems.**
+**Find a concept. Understand its meaning. Reuse it with provenance.**
 
-TIG provides stable concepts, controlled vocabulary, taxonomy, semantic relationships, and machine-readable ontology artifacts for designing, comparing, implementing, and governing digital trust infrastructure.
+TIG is a governed reference for digital trust terminology. It connects definitions to stable identifiers, contextual relationships and machine-readable artifacts.
 
-It is written for people, published for machines, and governed so that representation does not silently become authority.
+## What would you like to do?
 
-## How TIG fits together
+| Your goal | Where to begin |
+| --- | --- |
+| **Look up a concept** | [Explore concepts]({{ '/explore/' | relative_url }}) — search, A–Z, topic areas and related concepts. |
+| **Use terminology in a system** | [Use TIG]({{ '/use/' | relative_url }}) — reference stable IDs, select profiles and consume artifacts. |
+| **Understand how concepts relate** | [Semantic Model]({{ '/semantic-model/' | relative_url }}) — vocabulary, taxonomy, ontology and authority. |
+| **Contribute or review changes** | [Govern TIG]({{ '/governance/' | relative_url }}) — provenance, editorial controls, testing and publication. |
 
-| Layer | Question it answers | TIG provides |
-|---|---|---|
-| **Vocabulary** | What does this concept mean? | Stable concept IDs, designations, definitions and provenance |
-| **Taxonomy** | Where does this concept sit? | Governed broader/narrower hierarchy over canonical concepts |
-| **Ontology** | How does this concept relate to others? | Typed, provenance-bearing semantic edges with descriptive-reference effect |
-| **Profiles & artifacts** | How can a project consume TIG? | Bounded profiles, JSON, JSON-LD, Turtle, inventories and quality evidence |
-| **Governance** | How can this semantic system change safely? | Authority boundaries, source intake, validation, assurance and publication controls |
+**New to TIG?** [Follow the practical Start Here guide]({{ '/start-here/' | relative_url }}) for a short path from term lookup to correct use.
 
-The vocabulary is the semantic source. Taxonomy and ontology are governed projections over that source; they do not create downstream normative requirements.
+## What you can rely on
 
-## Start with what you need
+A concept has a stable `concept_id`, preferred and alternative designations, a definition, provenance and editorial status. Some concepts have governed taxonomy or typed relationship assertions. Machine-readable releases and profiles make this material consumable by tools.
 
-### Understand or navigate concepts
+**Example:** [Trust Task]({{ '/terms/trust-task/' | relative_url }}) is a TIG concept with its own documented meaning. A source specification using similar words is *not automatically* an exact semantic match.
 
-Use A–Z lookup, domain browsing, the generated taxonomy, relationship exploration, or site search.
+## Use the right level of detail
 
-[Explore concepts]({{ '/explore/' | relative_url }})
+- **Reading:** Start with the [A–Z index]({{ '/terms-index/' | relative_url }}) or [browse by domain]({{ '/concepts/' | relative_url }}).
+- **Implementing:** Begin with the [artifact catalogue]({{ '/artifacts/' | relative_url }}) and [consumer guidance]({{ '/governance/downstream-consumption/' | relative_url }}).
+- **Evaluating assurance:** Review [governance and source evidence]({{ '/governance/' | relative_url }}) rather than treating a quality score as semantic coverage.
 
-### Understand the semantic model
+## Authority and limits
 
-See how vocabulary, taxonomy, ontology and provenance fit together and where semantic authority lives.
+TIG is a **descriptive, maintained semantic reference**, not a certification body or a replacement for source specifications. Provenance and lexical similarity do not themselves authorize exact mappings; source-specific normative meaning remains with its owner.
 
-[Open the Semantic Model]({{ '/semantic-model/' | relative_url }})
-
-### Adopt TIG in a project
-
-Choose an integration path for referencing concepts, using a profile, traversing the semantic graph, or consuming machine-readable artifacts.
-
-[Use TIG]({{ '/use/' | relative_url }})
-
-### Review how TIG is governed
-
-Inspect concept admission, semantic change controls, source intake, assurance, quality and publication operations.
-
-[Govern TIG]({{ '/governance/' | relative_url }})
-
-## What makes TIG different
-
-| Property | What it means |
-|---|---|
-| **Readable** | Plain-English explanations accompany formal definitions |
-| **Referenceable** | Stable concept IDs are independent of labels and page names |
-| **Traceable** | Provenance, editorial state and source lineage remain visible |
-| **Connected** | Concepts participate in governed semantic relationships |
-| **Executable** | Authority, lifecycle, evidence and assurance metadata are machine-readable |
-| **Assurable** | Validation and deterministic generation produce inspectable evidence |
-| **Reusable** | Profiles and versioned artifacts support bounded downstream adoption |
-
-## Authority boundary
-
-TIG is not a certification authority and does not become the normative authority for a source specification merely by representing its concepts or relationships. Generated taxonomy and ontology assertions have descriptive-reference effect unless an authoritative source independently says otherwise.
-
-[Read the semantic authority model]({{ '/semantic-model/provenance/' | relative_url }}) · [Review governance controls]({{ '/governance/' | relative_url }})
-
-## Current release
-
-TIG `v2.2.0` introduced the governed taxonomy and lightweight ontology projection while preserving the v2 semantic and authority contract.
-
-[Read the v2.2.0 release notes]({{ '/release-notes-v2-2-0/' | relative_url }}) · [View project context]({{ '/project/' | relative_url }})
+[Project, releases and lineage]({{ '/project/' | relative_url }}) · [GitHub repository](https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary)
