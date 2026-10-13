@@ -161,7 +161,9 @@ jobs:
           persist-credentials: false
 
       - name: Hydrate source labels from verified DTG definition blobs
-        run: python tools/enrich_g2_source_queue.py --sources-root _upstream/dtg --output /tmp/tig-g2-source-verified-definitions.json
+        run: |
+          python -m unittest discover -s tests -p 'test_enrich_g2_source_queue.py' -v
+          python tools/enrich_g2_source_queue.py --sources-root _upstream/dtg --output /tmp/tig-g2-source-verified-definitions.json
 
       - name: Upload source-verified DTG definition review queue
         uses: actions/upload-artifact@v4
