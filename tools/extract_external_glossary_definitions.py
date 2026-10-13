@@ -1,18 +1,12 @@
 #!/usr/bin/env python3
-"""Parse pinned external Spec-Up-T definitions from Git blobs, without semantic promotion."""
+"""Extract explicit definitions from authenticated local Git checkouts."""
 import argparse
-import base64
-import hashlib
 import json
-import os
-import re
 from pathlib import Path
 
 from inventory_external_glossary_tree import TreeAdmissionError, write_report
 from extract_spec_up_t_terms import extract
 import subprocess
-
-PATTERN = re.compile(r"\[\[def:\s*([^\]\n]+?)\s*\]\]", re.IGNORECASE)
 
 
 def extract_checked_out_tree(root, repository, commit):
@@ -26,15 +20,12 @@ def extract_checked_out_tree(root, repository, commit):
     )
     rows = []
     for line in listing.splitlines():
-        prefix, path = line.split("\\t", 1)
+        prefix, path = line.split("\t", 1)
         mode, kind, sha = prefix.split()
         if kind == "blob" and path.endswith(".md"):
             rows.append({"path": path, "blob_sha": sha})
     if not rows:
         raise TreeAdmissionError("no tracked terminology source files")
-    manifest = {"source_repository": repository, "requested_commit": commit,
-                "tree_truncated": False, "term_file_count": len(rows),
-                "term_files": sorted(rows, key=lambda x: x["path"])}
     definitions = extract(root, repository, commit)
     by_path = {r["path"]: r["blob_sha"] for r in rows}
     for row in definitions:
