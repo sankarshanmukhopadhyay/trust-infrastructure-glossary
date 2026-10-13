@@ -50,3 +50,9 @@ The existing TIG pinned tree ledger has **50 explicit term files** from `trustov
 ## Current disposition
 
 **G0 PARTIAL / G1 PENDING / G2 PENDING.** This increment admits the rendered specification as a source of observable terminology and records unresolved transclusion dependencies. It does not alter canonical concepts or fabricate a coverage percentage. Further reconciliation must consume pinned upstream source text rather than a live documentation page alone.
+
+## Candidate ToIP repository pins (2026-10-13)
+
+The [external glossary candidate pin register](toip-external-glossary-candidate-pins.json) identifies immutable **candidate repository revisions** for the ToIP Main Glossary (`trustoverip/ctwg-main-glossary` at `00608bb6ce7f7e6285f202b580548d61ee716621`) and General IT Glossary (`trustoverip/ctwg-general-glossary` at `73604cf54c9f238b0d239daecc413a045f61c75e`). A source file was fetched and its blob SHA recorded from each commit. Those results verify the repositories and examples, **not** their complete definition sets and **not** the commits transcluded by the rendered Credentials specification. The DTG Glossary referenced through Atlassian has not been reduced to an authenticated immutable source.
+
+The G0 requirement for authenticated, complete inventories and published-version correspondence remains unmet. Do not change G0 to PASS or add candidate source counts to the accepted coverage denominator until the tree/transclusion checks and source license examination are complete.
