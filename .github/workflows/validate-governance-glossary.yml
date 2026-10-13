@@ -136,6 +136,39 @@ jobs:
       - name: Validate Credentials terminology source admission
         run: python -m unittest discover -s tests -p 'test_cred_spec_source_admission.py' -v
 
+      - name: Checkout pinned DTG Credentials specification
+        uses: actions/checkout@v4
+        with:
+          repository: trustoverip/dtgwg-cred-spec
+          ref: 4088056a15f6e74847eb422e1c2bae33684272ea
+          path: _upstream/dtg/credentials
+          persist-credentials: false
+
+      - name: Checkout pinned DTG VTI specification
+        uses: actions/checkout@v4
+        with:
+          repository: trustoverip/dtgwg-vti-spec
+          ref: dc1ec07d42ec5c0054037795c06dbead608fbc5b
+          path: _upstream/dtg/vti
+          persist-credentials: false
+
+      - name: Checkout pinned DTG Trust Tasks specification
+        uses: actions/checkout@v4
+        with:
+          repository: trustoverip/dtgwg-trust-tasks-spec
+          ref: bf667f3e8506b7fb2c3e96665b7060e2ebaad806
+          path: _upstream/dtg/tasks
+          persist-credentials: false
+
+      - name: Hydrate source labels from verified DTG definition blobs
+        run: python tools/enrich_g2_source_queue.py --sources-root _upstream/dtg --output /tmp/tig-g2-source-verified-definitions.json
+
+      - name: Upload source-verified DTG definition review queue
+        uses: actions/upload-artifact@v4
+        with:
+          name: tig-g2-source-verified-106-definitions
+          path: /tmp/tig-g2-source-verified-definitions.json
+
       - name: Validate entire initial G2 source review universe
         run: |
           python -m unittest discover -s tests -p 'test_g2_full_source_queue.py' -v
