@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "observed_date": "2026-10-13",
+  "source_repository": "trustoverip/dtgwg-cred-spec",
+  "pinned_commit": "4088056a15f6e74847eb422e1c2bae33684272ea",
+  "canonical_term_tree": "governance/coverage/pinned-dtg-spec-term-trees.json",
+  "canonical_directory": "spec/terms-definitions/",
+  "source_directory_term_count_at_pinned_commit": 50,
+  "rendered_terminology_url": "https://trustoverip.github.io/dtgwg-cred-spec/#terminology",
+  "rendered_document_version": "1.0",
+  "rendered_document_status": "Working Draft",
+  "rendered_section_status": "informative",
+  "source_authority": "DTGWG source specification; source-specific definitions remain owned by their upstream maintainers",
+  "rendered_page_commit_equivalence_verified": false,
+  "term_directory_to_rendered_section_parity_verified": false,
+  "referenced_glossaries": [
+    {
+      "label": "DTG Glossary",
+      "kind": "source_glossary",
+      "source_url": "https://lf-toip.atlassian.net/",
+      "status": "requires_pinned_source_admission",
+      "coverage": "indeterminate"
+    },
+    {
+      "label": "ToIP Main Glossary",
+      "kind": "external_transclusion",
+      "source_url": "https://glossary.trustoverip.org/",
+      "status": "requires_pinned_source_admission",
+      "coverage": "indeterminate"
+    },
+    {
+      "label": "ToIP General IT Glossary",
+      "kind": "external_transclusion",
+      "source_url": null,
+      "status": "requires_pinned_source_admission",
+      "coverage": "indeterminate"
+    }
+  ],
+  "taxonomy_guards": [
+    {
+      "id": "credentials-hierarchy",
+      "rule": "Edge, invitation and annotation are descriptive categories, not intermediate formal credential schema types",
+      "formal_parent": "DTGCredential",
+      "formal_children": ["MembershipCredential", "RelationshipCredential", "InvitationCredential", "PersonaCredential", "EndorsementCredential", "WitnessCredential"]
+    },
+    {
+      "id": "identity-verification-credential",
+      "rule": "An IDVC can support DTG onboarding but is not one of the standard DTG Core Credentials"
+    },
+    {
+      "id": "relationship-card",
+      "rule": "An r-card is a VDS, not a DTGCredential subtype"
+    },
+    {
+      "id": "trust-task-scope",
+      "rule": "Credential taskContext binding does not authorize rewriting an existing TIG trust-task definition or treating a Trust Task artifact as a credential"
+    }
+  ],
+  "semantic_approval": "not_assessed",
+  "tig_exact_mappings_asserted": 0,
+  "coverage": "indeterminate"
+}
