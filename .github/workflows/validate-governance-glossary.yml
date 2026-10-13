@@ -49,6 +49,9 @@ jobs:
           python tools/validate_tig_consumer_qualification.py
           python -m unittest discover -s tests -p 'test_tig_consumer_qualification.py' -v
 
+      - name: Validate Credentials terminology source admission
+        run: python -m unittest discover -s tests -p 'test_cred_spec_source_admission.py' -v
+
       - name: Validate concept snapshot change classification
         run: python -m unittest discover -s tests -p 'test_concept_semantic_changes.py' -v
 
