@@ -136,6 +136,9 @@ jobs:
       - name: Validate Credentials terminology source admission
         run: python -m unittest discover -s tests -p 'test_cred_spec_source_admission.py' -v
 
+      - name: Validate source-grounded G2 high-risk review dossiers
+        run: python -m unittest discover -s tests -p 'test_g2_high_risk_dossiers.py' -v
+
       - name: Validate concept snapshot change classification
         run: python -m unittest discover -s tests -p 'test_concept_semantic_changes.py' -v
 
