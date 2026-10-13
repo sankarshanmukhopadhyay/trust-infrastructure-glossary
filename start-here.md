@@ -1,32 +1,48 @@
 ---
 title: "Start Here"
 nav_order: 1
+permalink: /start-here/
 ---
+
 # Start Here
 
-TIG serves both **readers who need to understand trust-infrastructure language** and **systems that need stable machine-readable semantics**.
+Use this page when you are unfamiliar with TIG. Choose one concrete task, then follow the next step.
 
-## If you are reading
+## 1. Find and interpret a concept
 
-- [Explore by topic]({{ '/concepts/' | relative_url }}) when you know the problem area.
-- [Browse A–Z]({{ '/terms-index/' | relative_url }}) when you know the term.
-- Use search when terminology varies across specifications.
+Open the [A–Z index]({{ '/terms-index/' | relative_url }}) if you know its name, or [browse by domain]({{ '/concepts/' | relative_url }}) if you know the problem area.
 
-## If you are implementing
+On the concept page, read its formal definition and alternative designations. Check **provenance** and **editorial status** before relying on it. A familiar label does not necessarily have the same meaning in a cited specification.
 
-- [Use a vocabulary profile]({{ '/profiles/' | relative_url }}) for a bounded concept set.
-- [Consume machine-readable artifacts]({{ '/artifacts/' | relative_url }}) for JSON, JSON-LD and SKOS-compatible Turtle.
-- [Read downstream guidance]({{ '/governance/downstream-consumption/' | relative_url }}) for stable IDs and release pinning.
+**Next:** [Explore concepts and relationships]({{ '/explore/' | relative_url }}).
 
-## If you are reviewing or contributing
+## 2. Cite a concept in a specification or implementation
 
-- [Understand the semantic model]({{ '/governance/semantic-model/' | relative_url }}).
-- [Read the term authoring guide]({{ '/governance/term-authoring-guide/' | relative_url }}).
-- [Review source intake and provenance]({{ '/governance/source-intake-and-provenance/' | relative_url }}).
-- [Check assurance and quality]({{ '/governance/quality-report/' | relative_url }}).
+Prefer its stable `concept_id` to a label or URL slug. Record the TIG release or immutable revision you used. If you need multiple concepts, inspect an existing [vocabulary profile]({{ '/profiles/' | relative_url }}) before importing the full glossary.
 
-## If you knew this project before v2
+**Next:** [Read downstream consumption guidance]({{ '/governance/downstream-consumption/' | relative_url }}).
 
-TIG is no longer governed as a downstream ToIP fork. Existing lineage is preserved through provenance, and v1 consumers have a documented compatibility path.
+## 3. Integrate TIG with software
 
-[Read the v2 migration guide]({{ '/migration-v2/' | relative_url }})
+Choose the smallest product that fits the task:
+
+| Need | Product |
+| --- | --- |
+| Lookup definitions and identity | [Vocabulary JSON and catalogue]({{ '/artifacts/' | relative_url }}) |
+| Traverse reviewed hierarchy | [Taxonomy]({{ '/semantic-model/taxonomy/' | relative_url }}) |
+| Process typed relationships | [Ontology]({{ '/semantic-model/ontology/' | relative_url }}) |
+| Use a bounded subset | [Profiles]({{ '/profiles/' | relative_url }}) |
+
+**Next:** [Use TIG]({{ '/use/' | relative_url }}).
+
+## 4. Propose a correction or new concept
+
+Read the [Term Authoring Guide]({{ '/governance/term-authoring-guide/' | relative_url }}) and [source intake and provenance rules]({{ '/governance/source-intake-and-provenance/' | relative_url }}). Changes to definitions, IDs and semantic mappings require appropriate review and tests.
+
+**Next:** [Govern TIG]({{ '/governance/' | relative_url }}).
+
+## Important boundary
+
+TIG is descriptive. A concept ID identifies a TIG meaning; it does not certify a system, replace an external standard or imply exact equivalence with every similar term.
+
+Coming from v1? [Read the migration guide]({{ '/migration-v2/' | relative_url }}).

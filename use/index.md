@@ -6,51 +6,30 @@ has_children: true
 
 # Use TIG
 
-TIG is designed to be referenced, integrated and governed downstream, not merely read. Start with the job you need to accomplish.
+Choose the smallest stable TIG product that serves your use case. A `concept_id` identifies a TIG concept; it does not automatically approve an external semantic mapping.
 
-| I want to… | Use this TIG capability |
-|---|---|
-| Reference one stable concept | Use its canonical `concept_id` and pin the release where reproducibility matters |
-| Adopt a bounded vocabulary | Use a validated vocabulary profile |
-| Validate terminology or metadata | Consume the JSON/catalog/schema artifacts |
-| Navigate broader/narrower classification | Consume the generated taxonomy |
-| Traverse semantic relationships | Consume JSON-LD or Turtle ontology artifacts |
-| Map another vocabulary | Use concept mappings with explicit mapping strength |
-| Build governance or assurance tooling | Consume governance, evidence, lifecycle and control-plane metadata |
-| Preserve repeatability across releases | Pin a TIG version and record the profile/subset consumed |
+## Choose a consumption path
 
-## Choose an integration path
+| Your requirement | Recommended starting point |
+| --- | --- |
+| Reference one meaning consistently | Use the concept's stable `concept_id` and pin a TIG release |
+| Find a term or identifier programmatically | [Vocabulary JSON and catalogue]({{ '/artifacts/' | relative_url }}) |
+| Reuse a defined subset | [Vocabulary profiles]({{ '/profiles/' | relative_url }}) |
+| Browse a classification hierarchy | [Taxonomy]({{ '/semantic-model/taxonomy/' | relative_url }}) |
+| Traverse semantic edges | [Ontology]({{ '/semantic-model/ontology/' | relative_url }}) |
+| Map another source vocabulary | Apply reviewed mapping strength; do not infer `exact` from labels |
 
-### Use a bounded vocabulary
+## Minimal adoption pattern
 
-Vocabulary profiles select stable TIG concepts for a particular implementation or governance domain without redefining them.
+1. Select the concept or bounded profile you actually need.
+2. Record its `concept_id`, TIG release/revision and the local context of use.
+3. Read provenance and mapping status before asserting correspondence with an external specification.
+4. Validate your integration using the published machine-readable artifacts.
 
-[Explore vocabulary profiles]({{ '/profiles/' | relative_url }})
+[Read the artifact catalogue]({{ '/artifacts/' | relative_url }}) · [Downstream consumption guidance]({{ '/governance/downstream-consumption/' | relative_url }})
 
-### Consume machine-readable semantics
+## Understand the boundaries
 
-Choose the semantic product you need: vocabulary bundle, taxonomy, ontology, profiles, inventory or quality evidence.
+Vocabulary records concepts; taxonomy classifies them; ontology relates them. These are different products, and adopting one does not require adopting them all. None transfers normative authority to TIG.
 
-[View the artifact catalogue]({{ '/artifacts/' | relative_url }})
-
-### Reference TIG downstream
-
-Use stable concept IDs, identify the TIG release used, and preserve the local context in which a concept or profile is applied.
-
-[Read downstream consumption guidance]({{ '/governance/downstream-consumption/' | relative_url }})
-
-### Understand the semantic layers first
-
-If you are unsure whether you need the vocabulary, taxonomy or ontology, start with the semantic model.
-
-[Open the Semantic Model]({{ '/semantic-model/' | relative_url }})
-
-## Moving from v1
-
-Version 2 separates concepts from their designations and changes the canonical artifact names while retaining compatibility outputs during migration.
-
-[Read the v2 migration guide]({{ '/migration-v2/' | relative_url }})
-
-## Adoption rule of thumb
-
-Use the **smallest TIG surface that satisfies your requirement**. Referencing a concept does not require adopting the ontology; consuming the ontology does not transfer TIG governance authority to your implementation; and a profile remains a bounded selection rather than a new definition layer.
+[Understand the Semantic Model]({{ '/semantic-model/' | relative_url }}) · [Migrating from v1]({{ '/migration-v2/' | relative_url }})

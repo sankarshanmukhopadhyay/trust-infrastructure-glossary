@@ -44,6 +44,9 @@ jobs:
           python -m unittest discover -s tests -p 'test_semantic_first_pass.py' -v
           python -m unittest discover -s tests -p 'test_semantic_decision_proposals.py' -v
 
+      - name: Validate reader-first information architecture
+        run: python -m unittest discover -s tests -p 'test_consumer_navigation_ia.py' -v
+
       - name: Validate consumer qualification evidence
         run: |
           python tools/validate_tig_consumer_qualification.py

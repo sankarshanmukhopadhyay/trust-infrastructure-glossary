@@ -6,45 +6,21 @@ has_children: true
 
 # Explore Concepts
 
-Find the concept you need without having to understand TIG's repository structure first. TIG now supports four complementary exploration paths over the same governed concept corpus.
+Find a definition first, then examine its context, provenance and relationships.
 
-## A–Z
+| If you know… | Start with |
+| --- | --- |
+| The term or one of its names | [A–Z concept index]({{ '/terms-index/' | relative_url }}) |
+| The trust-infrastructure problem area | [Browse by domain]({{ '/concepts/' | relative_url }}) |
+| A broader or narrower concept | [Taxonomy]({{ '/explore/taxonomy/' | relative_url }}) |
+| A related concept or edge | [Relationships]({{ '/explore/relationships/' | relative_url }}) |
 
-Use the alphabetical index when you know the term or designation you are looking for.
+**Search:** Use the site's search box to find concept pages and documentation.
 
-[Open the A–Z concept index]({{ '/terms-index/' | relative_url }})
+## Reading concept pages
 
-## By domain
+Start with the definition and alternative labels. Use provenance to determine where the wording comes from, and the stable `concept_id` when citing it. Semantic relationships are reviewed descriptive connections, do not prove that terms from different specifications are interchangeable.
 
-Start with a problem area such as authority, delegation, agents, assurance, harms, recognition, registries, or interoperability.
+A first example is [Trust Task]({{ '/terms/trust-task/' | relative_url }}): its source-specific usage requires care when comparing it to similarly named external concepts.
 
-[Browse concepts by domain]({{ '/concepts/' | relative_url }})
-
-## Taxonomy
-
-Navigate reviewed broader/narrower classification relationships derived from the v2.2 semantic model.
-
-[Browse the generated taxonomy]({{ '/explore/taxonomy/' | relative_url }})
-
-## Relationships
-
-Explore the typed semantic edges connecting concepts, including broader, narrower and related relationships.
-
-[Explore semantic relationships]({{ '/explore/relationships/' | relative_url }})
-
-## Search
-
-Site search covers generated concept pages, semantic-model guidance, adoption documentation, governance and project context. Alternative designations and aliases are shown on concept pages to help disambiguate terminology used across specifications.
-
-## How to read a concept page
-
-Each concept page presents information progressively:
-
-1. **Plain-English meaning** for quick comprehension.
-2. **Formal definition** for precise use.
-3. **Why it matters** for implementation and governance context.
-4. **Names and semantic relationships** for positioning the concept in the TIG graph.
-5. **Provenance and identity** for stable reference and source inspection.
-6. **Implementation and governance metadata** for assurance and machine-oriented consumers.
-
-Taxonomy and relationship views are derived navigation surfaces. They do not create semantic authority independently of the governed TIG sources.
+Want to consume results programmatically? [Use TIG]({{ '/use/' | relative_url }}).
