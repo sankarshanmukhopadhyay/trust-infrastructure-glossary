@@ -59,6 +59,9 @@ jobs:
           python -m unittest discover -s tests -p 'test_catalog_consumer.py' -v
           python tools/qualify_catalog_consumer.py
 
+      - name: Validate candidate external glossary pins
+        run: python -m unittest discover -s tests -p 'test_external_glossary_candidate_pins.py' -v
+
       - name: Validate Credentials terminology source admission
         run: python -m unittest discover -s tests -p 'test_cred_spec_source_admission.py' -v
 

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "observed_date": "2026-10-13",
+  "source_page": "https://trustoverip.github.io/dtgwg-cred-spec/#terminology",
+  "external_glossary_candidates": [
+    {
+      "label": "ToIP Main Glossary",
+      "repository": "trustoverip/ctwg-main-glossary",
+      "pinned_candidate_commit": "00608bb6ce7f7e6285f202b580548d61ee716621",
+      "verified_example": {
+        "path": "spec/terms-definitions/wallet-engine.md",
+        "blob_sha": "ec0431e686061a2e6acbe69ea653b0a45051154c",
+        "declared_label": "wallet-engine"
+      },
+      "repo_commit_discovered": true,
+      "source_file_at_revision_verified": true,
+      "complete_tree_verified": false,
+      "transclusion_revision_verified": false,
+      "admission_status": "candidate_requires_tree_and_transclusion_audit"
+    },
+    {
+      "label": "ToIP General IT Glossary",
+      "repository": "trustoverip/ctwg-general-glossary",
+      "pinned_candidate_commit": "73604cf54c9f238b0d239daecc413a045f61c75e",
+      "verified_example": {
+        "path": "spec/terms-definitions/blake3.md",
+        "blob_sha": "8ad0628de3b12dd447d68ef4b11f3727ecffd03c",
+        "declared_label": "blake3"
+      },
+      "repo_commit_discovered": true,
+      "source_file_at_revision_verified": true,
+      "complete_tree_verified": false,
+      "transclusion_revision_verified": false,
+      "admission_status": "candidate_requires_tree_and_transclusion_audit"
+    }
+  ],
+  "dtg_glossary": {
+    "label": "DTG Glossary",
+    "linked_location": "https://lf-toip.atlassian.net/",
+    "verified_immutable_source": null,
+    "admission_status": "unresolved"
+  },
+  "source_glossary_coverage": null,
+  "source_normative_equivalence_approved": false
+}
