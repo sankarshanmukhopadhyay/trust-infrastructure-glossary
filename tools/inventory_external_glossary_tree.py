@@ -34,7 +34,8 @@ def github_json(url, token=None):
 
 
 def inventory(repository, commit, fetch=github_json, token=None):
-    if (not REPO_RE.fullmatch(repository) or not SHA_RE.fullmatch(commit)\n            or any(segment in (".", "..") for segment in repository.split("/"))):
+    if (not REPO_RE.fullmatch(repository) or not SHA_RE.fullmatch(commit)
+            or any(segment in (".", "..") for segment in repository.split("/"))):
         raise TreeAdmissionError("repository or full commit SHA is invalid")
     url = f"https://api.github.com/repos/{repository}/git/trees/{commit}?recursive=1"
     data = fetch(url, token)
