@@ -8,7 +8,7 @@
   "source_directory_term_count_at_pinned_commit": 50,
   "rendered_terminology_url": "https://trustoverip.github.io/dtgwg-cred-spec/#terminology",
   "rendered_document_version": "1.0",
-  "rendered_document_status": "Working Draft",
+  "rendered_document_status": "Working Draft 0.6.0 (observed published document status; specification Version 1.0)",
   "rendered_section_status": "informative",
   "source_authority": "DTGWG source specification; source-specific definitions remain owned by their upstream maintainers",
   "rendered_page_commit_equivalence_verified": false,
@@ -39,9 +39,17 @@
   "taxonomy_guards": [
     {
       "id": "credentials-hierarchy",
-      "rule": "Edge, invitation and annotation are descriptive categories, not intermediate formal credential schema types",
+      "rule": "Seven DTG Core Credential concrete types in published Working Draft 0.6.0: VMC, VRC, VDC, VIC, VPC, VSC and VAC. The VEC/VWC are VSC predicate profiles, not credential types. Edge credential grouping of VMC/VRC/VDC is descriptive and not an intermediate schema type.",
       "formal_parent": "DTGCredential",
-      "formal_children": ["MembershipCredential", "RelationshipCredential", "InvitationCredential", "PersonaCredential", "EndorsementCredential", "WitnessCredential"]
+      "formal_children": [
+        "MembershipCredential",
+        "RelationshipCredential",
+        "DelegationCredential",
+        "InvitationCredential",
+        "PersonaCredential",
+        "StatementCredential",
+        "AuthorityCredential"
+      ]
     },
     {
       "id": "identity-verification-credential",
@@ -58,5 +66,6 @@
   ],
   "semantic_approval": "not_assessed",
   "tig_exact_mappings_asserted": 0,
-  "coverage": "indeterminate"
+  "coverage": "indeterminate",
+  "publication_observation": "Published Working Draft 0.6.0 terminology and credential taxonomy reviewed 2026-10-13; rendered-page build revision not verified."
 }

@@ -28,8 +28,11 @@ class CredentialTerminologyAdmissionTests(unittest.TestCase):
     def test_taxonomy_and_semantic_guardrails(self):
         item = self.record
         guards = {x["id"]: x for x in item["taxonomy_guards"]}
-        self.assertEqual(len(guards["credentials-hierarchy"]["formal_children"]), 6)
+        self.assertEqual(len(guards["credentials-hierarchy"]["formal_children"]), 7)
         self.assertEqual(guards["credentials-hierarchy"]["formal_parent"], "DTGCredential")
+        self.assertIn("StatementCredential", guards["credentials-hierarchy"]["formal_children"])
+        self.assertIn("AuthorityCredential", guards["credentials-hierarchy"]["formal_children"])
+        self.assertIn("not credential types", guards["credentials-hierarchy"]["rule"])
         self.assertIn("not one of the standard", guards["identity-verification-credential"]["rule"])
         self.assertIn("not a DTGCredential", guards["relationship-card"]["rule"])
         self.assertEqual(item["semantic_approval"], "not_assessed")
