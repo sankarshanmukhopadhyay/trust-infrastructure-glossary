@@ -90,6 +90,7 @@ python tools/build_semantic_model.py
 python tools/build_jekyll_site.py
 python tools/build_site_information_architecture.py
 python tools/validate_site_ia.py
+python tools/validate_tig_consumer_qualification.py
 ```
 
 Build the site locally:
@@ -104,6 +105,10 @@ CI performs the same semantic and site-IA checks and rejects tracked generated-a
 ## DTG/VTC scoped terminology assurance baseline
 
 The [October 2026 bounded assessment](governance/dtg-vtc-bounded-assurance-verdict-2026-10-12.md) examines 106 explicitly defined terms from three pinned DTG specification terminology directories. It provides verified source provenance, a reproducible lexical crosswalk, review findings and a defensible **INDETERMINATE** semantic-coverage disposition. It does **not** certify DTG/VTC completeness, claim that unmatched terms are missing, or confer normative authority on TIG. Further work is contingent on specific semantic decisions or a named adopter requirement.
+
+## Consumer qualification
+
+The [October 2026 TIG consumer qualification](governance/adoption/tig-consumer-qualification-2026-10-13.md) validates two bounded adoption journeys: human concept navigation and machine stable-ID consumption. It adds guardrails proving that ambiguous DTG/VTC lexical candidates remain unapproved semantic mappings and that high-risk proposals cannot authorize canonical mutation before review.
 
 ## Current quality posture
 

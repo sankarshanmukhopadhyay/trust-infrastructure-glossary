@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "assessment_date": "2026-10-13",
+  "scope": "TIG-owned human and machine consumer journeys over current governed artifacts",
+  "base_ref": "main@44bb309ccc832e68d0f79b577e6795b11924f934",
+  "authority_boundary": "TIG remains descriptive and non-normative; source specifications remain authoritative for source semantics.",
+  "journeys": [
+    {
+      "id": "human-concept-navigation",
+      "consumer": "human_reader",
+      "question": "Can a reader locate a concept, its designations, provenance, relationships and usage limits without treating lexical similarity as semantic authority?",
+      "entry_points": [
+        "README.md",
+        "explore/index.md",
+        "_terms/trust-task.md",
+        "governance/dtg-vtc-bounded-assurance-verdict-2026-10-12.md"
+      ],
+      "expected_evidence": [
+        "README distinguishes TIG concept identity from string labels.",
+        "Generated concept page exists for trust-task.",
+        "Canonical YAML preserves provenance, editorial state and empty approved mappings.",
+        "Bounded DTG/VTC report states INDETERMINATE semantic coverage rather than certification."
+      ],
+      "observations": [
+        {
+          "id": "human-001",
+          "path": "README.md",
+          "expected": "Reader is told that concept_id and designations are authoritative identity fields.",
+          "observed": "README states that the authoritative unit is a concept, not a string label.",
+          "result": "PASS"
+        },
+        {
+          "id": "human-002",
+          "path": "_terms/trust-task.md",
+          "expected": "Generated concept route exists for the selected ambiguous concept.",
+          "observed": "Generated trust-task concept page is present.",
+          "result": "PASS"
+        },
+        {
+          "id": "human-003",
+          "path": "glossary/terms/trust-task.yaml",
+          "expected": "Canonical source preserves provenance, editorial status and no approved exact/close/broad/narrow mapping for DTG Trust Task semantics.",
+          "observed": "Canonical YAML retains adapted ToIP provenance, stable concept_id and empty concept_mappings.",
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "machine-stable-id-round-trip",
+      "consumer": "machine_consumer",
+      "question": "Can a machine consumer resolve a stable concept_id, its designations, provenance and generated representation while preserving unresolved semantic states?",
+      "entry_points": [
+        "glossary/terms/trust-task.yaml",
+        "generated/json/trust-infrastructure-glossary.json",
+        "generated/json/tig-ontology.jsonld",
+        "governance/coverage/dtg-semantic-first-pass.json",
+        "governance/coverage/dtg-semantic-decision-proposals.json"
+      ],
+      "expected_evidence": [
+        "Stable concept_id is present in canonical YAML.",
+        "Generated machine-readable products exist.",
+        "Preliminary DTG semantic comparison requires approval and carries no mapping assertion.",
+        "High-risk decision proposals preserve pending approval and disallow canonical mutation."
+      ],
+      "observations": [
+        {
+          "id": "machine-001",
+          "path": "glossary/terms/trust-task.yaml",
+          "expected": "concept_id resolves to urn:tig:concept:trust-task and has designations.",
+          "observed": "Stable ID and designations are available in the canonical YAML artifact.",
+          "result": "PASS"
+        },
+        {
+          "id": "machine-002",
+          "path": "generated/json/trust-infrastructure-glossary.json",
+          "expected": "Vocabulary JSON exists as a machine-readable product.",
+          "observed": "Generated vocabulary JSON is present and remains a derived consumption surface.",
+          "result": "PASS"
+        },
+        {
+          "id": "machine-003",
+          "path": "governance/coverage/dtg-semantic-first-pass.json",
+          "expected": "Lexical candidates are not treated as approved semantic mappings.",
+          "observed": "All first-pass records require semantic approval and carry null mapping_assertion.",
+          "result": "PASS"
+        }
+      ]
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "negative-ambiguous-trust-task",
+      "claim_under_test": "An ambiguous source/TIG lexical match must not be promoted to approved exact semantic equivalence.",
+      "evidence_path": "governance/coverage/dtg-semantic-first-pass.json",
+      "expected_guard": "decision_state remains requires_semantic_approval and mapping_assertion remains null.",
+      "result": "PASS"
+    },
+    {
+      "id": "negative-high-risk-canonical-mutation",
+      "claim_under_test": "High-risk semantic proposals must not authorize canonical definition mutation before approval.",
+      "evidence_path": "governance/coverage/dtg-semantic-decision-proposals.json",
+      "expected_guard": "approval remains pending and canonical_change_allowed remains false.",
+      "result": "PASS"
+    },
+    {
+      "id": "negative-unmatched-terms",
+      "claim_under_test": "A missing lexical candidate must not become a confirmed missing TIG concept.",
+      "evidence_path": "governance/dtg-vtc-bounded-assurance-verdict-2026-10-12.md",
+      "expected_guard": "The report states 89 nonmatches are evidence gaps, not confirmed missing concepts.",
+      "result": "PASS"
+    }
+  ],
+  "final_decision": {
+    "state": "bounded_work_complete",
+    "decision": "No additional TIG infrastructure or canonical semantic change is warranted from this consumer qualification tranche.",
+    "next_work_trigger": "Open new work only for a named adopter failure, broken consumer path, approved semantic decision, or regression in machine-readable artifact resolution."
+  }
+}

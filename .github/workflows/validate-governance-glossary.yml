@@ -44,6 +44,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_semantic_first_pass.py' -v
           python -m unittest discover -s tests -p 'test_semantic_decision_proposals.py' -v
 
+      - name: Validate consumer qualification evidence
+        run: |
+          python tools/validate_tig_consumer_qualification.py
+          python -m unittest discover -s tests -p 'test_tig_consumer_qualification.py' -v
+
       - name: Upload lexical discovery evidence
         uses: actions/upload-artifact@v4
         with:
