@@ -100,6 +100,17 @@ jobs:
           python tools/extract_external_glossary_definitions.py --repository trustoverip/ctwg-main-glossary --commit 00608bb6ce7f7e6285f202b580548d61ee716621 --source-root _upstream/toip-main --output /tmp/tig-toip-main-definitions.json
           python tools/extract_external_glossary_definitions.py --repository trustoverip/ctwg-general-glossary --commit 73604cf54c9f238b0d239daecc413a045f61c75e --source-root _upstream/toip-general --output /tmp/tig-toip-general-definitions.json
 
+      - name: Build external lexical crosswalk review queue
+        run: |
+          python -m unittest discover -s tests -p 'test_external_glossary_crosswalk.py' -v
+          python tools/build_external_glossary_crosswalk.py --catalog generated/json/trust-infrastructure-glossary.catalog.json --source /tmp/tig-toip-main-definitions.json --source /tmp/tig-toip-general-definitions.json --output /tmp/tig-external-source-crosswalk.json
+
+      - name: Upload external crosswalk evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: tig-external-glossary-lexical-crosswalk
+          path: /tmp/tig-external-source-crosswalk.json
+
       - name: Upload external definition extraction evidence
         uses: actions/upload-artifact@v4
         with:
