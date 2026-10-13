@@ -43,6 +43,24 @@ This is separate from source-version pinning: a source-specification commit is e
 6. Identical inputs yield byte-identical canonical JSON; malformed/missing snapshots fail closed.
 7. v1-compatible `term` and `aliases` are checked on material changes.
 
+## Reproducible usage
+
+The additive comparator is implemented by `tools/report_concept_semantic_changes.py`. Supply **two separately checked out** repository revisions with their canonical `glossary/terms/` paths; the script does not itself verify that a directory equals a declared Git ref. Operators must separately record `git rev-parse HEAD` for each checkout and retain that evidence.
+
+```bash
+# From a clean TIG checkout with the corresponding releases/SHAs checked out
+python tools/report_concept_semantic_changes.py \\
+  --before /path/to/old-checkout/glossary/terms \\
+  --after /path/to/new-checkout/glossary/terms \\
+  --before-ref v2.2.0 \\
+  --after-ref COMMIT_SHA_OF_NEW_CHECKOUT \\
+  --output /tmp/tig-semantic-change-report.json
+
+python -m unittest discover -s tests -p 'test_concept_semantic_changes.py' -v
+```
+
+The comparison includes only direct `*.yaml` artifacts in each directory; it emits sorted concept-ID rows, detected structural-change classes and an explicit `semantic_approval: not_assessed`. This is a **candidate review report**, never a semantic-change verdict or an authentication of snapshot provenance. Pin source revisions outside the tool and do not place this output in the canonical glossary authority layer.
+
 ## Why not add a new concept-version field immediately?
 
 A monotonically incremented `concept_version` would imply that the project can authoritatively classify every intervening historical semantic change. At present no stable semantics for such a field, version increment policy, or audited history exist. Introducing it now would create a false assurance layer. First establish a falsifiable two-snapshot diff and consumer evidence. Then consider a reviewed change ledger with authority/decision timestamps if the independent consumer pilot demonstrates demand.
@@ -53,4 +71,4 @@ The report may identify candidates for review, but only TIG maintainers can appr
 
 ## Current conclusion
 
-**Feasibility decision: viable as a small, deterministic, additive history-diff capability; implementation not yet proven.** #14's request for three concrete scenarios and a feasibility judgment is addressed here, but the original expanded mandate remains open until the tests, actual diff report and consumer results are integrated.
+**Feasibility decision: an additive two-snapshot comparison has been implemented with bounded unit and negative fixtures; complete deployment/CI assurance and independent consumer utility require verification.** #14's request for three concrete scenarios and a feasibility judgment is addressed here, but the original expanded mandate remains open until the tests, actual diff report and consumer results are integrated.
