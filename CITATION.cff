@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: Trust Infrastructure Glossary
 message: "If you use this concept system in specifications, research, governance, or implementation guidance, cite the repository and release version."
 type: dataset
-version: 2.1.0
+version: 2.2.0
 date-released: 2026-08-20
 repository-code: "https://github.com/sankarshanmukhopadhyay/trust-infrastructure-glossary"
 url: "https://sankarshanmukhopadhyay.github.io/trust-infrastructure-glossary/"
